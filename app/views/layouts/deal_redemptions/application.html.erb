@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>DealRedemptions</title>
+  <title><%= DealRedemptions.config.site_name %></title>
   <%= stylesheet_link_tag    "deal_redemptions/application", media: "all" %>
   <%= javascript_include_tag "deal_redemptions/application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+<div class="container">
+  <%= yield %>
+</div>
 
 </body>
 </html>
