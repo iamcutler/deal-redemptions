@@ -11,7 +11,9 @@ module DealRedemptions
 
     # Default vars if not overwritten
     @@config.site_name = 'Deal Site Redemptions'
+    @@config.welcome_notice = 'Please select a deal site to redeem your voucher:'
     @@config.logo = '/assets/logo.png'
+    @@config.disable_powered = false
 
     yield @@config if block
 
