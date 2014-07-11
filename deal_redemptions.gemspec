@@ -19,6 +19,10 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.1.4"
   s.add_dependency "bootstrap-sass"
+  s.add_dependency "jquery-rails"
   s.add_dependency "sass-rails", "~> 4.0.3"
   s.add_dependency "haml-rails"
+  #testing
+  s.add_development_dependency "rspec-rails"
+  s.add_development_dependency "factory_girl_rails"
 end
