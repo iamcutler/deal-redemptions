@@ -1,0 +1,15 @@
+.row
+  .center-block
+    = image_tag DealRedemptions.config.logo, id: 'login-logo'
+
+    .login-box
+      %p= DealRedemptions.config.welcome_notice
+      = form_tag redeem_path(''), method: 'get' do
+        .form-group
+          %label{ for: 'company' }
+          %select{ id: 'company', name: 'company', class: 'form-control', style: 'margin-bottom: 10px;', onchange: "window.location.href=this.form.action + this.form.company.value;" }
+            %option= 'Select:'
+            - @companies.each do |c|
+              %option{ value: c.slug }= c.name
+
+  = render '/deal_redemptions/shared_partials/powered'

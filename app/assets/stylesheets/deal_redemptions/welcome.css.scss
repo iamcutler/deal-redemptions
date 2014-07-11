@@ -1,0 +1,32 @@
+/*
+  Place all the styles related to the matching controller here.
+  They will automatically be included in application.css.
+*/
+
+.row {
+  text-align: center;
+  padding: 20px;
+
+  #login-logo {
+    margin: auto;
+  }
+
+  .login-box {
+    max-width: 400px;
+    border-radius: 6px;
+    box-shadow: 0 0 6px #CCC;
+    padding: 20px;
+    margin: auto;
+
+    p {
+      font-size: 16px;
+      text-align: left;
+      margin: 0;
+    }
+  }
+
+  .powered-by {
+    font-size: 10px;
+    margin: 10px 0;
+  }
+}
