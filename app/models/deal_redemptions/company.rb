@@ -1,5 +1,7 @@
 module DealRedemptions
   class Company < ActiveRecord::Base
+    has_one :redeem_transaction
+
     validates :name, :slug, presence: true, uniqueness: true
 
     default_scope { where(active: 1) }
