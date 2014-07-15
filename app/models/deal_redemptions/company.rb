@@ -1,6 +1,7 @@
 module DealRedemptions
   class Company < ActiveRecord::Base
     has_one :redeem_transaction
+    has_many :redeem_code
 
     validates :name, :slug, presence: true, uniqueness: true
 
