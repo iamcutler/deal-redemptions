@@ -1,0 +1,98 @@
+// Stylesheet form deal redemptions admin interface
+
+// 1.0 Globals
+html, body {
+  background: #444;
+  color: #FFF;
+  font-family: "ProximaNovaLight", "Helvetica Neue", "Helvetica", "sans-serif";
+  margin: 0;
+  padding: 0;
+  display: initial;
+}
+
+@mixin transform($statement) {
+  -webkit-transition: $statement;
+  -moz-transition: $statement;
+  -o-transition: $statement;
+  transition: $statement;
+}
+
+// ===============================================================
+// 1.0 Structure
+// ===============================================================
+
+// Login form
+.login-heading, .login-subheading {
+  text-align: center;
+  text-shadow: 0 0 4px #000;
+
+  h1 {
+    padding: 30px 0 20px 0;
+    font-size: 30px;
+  }
+
+  h4 {
+    padding: 0 0 20px 0;
+  }
+}
+
+.login-subheading {
+  font-family: 'ProximaNovaRegular';
+  font-size: 12px;
+}
+
+.login-container {
+  max-width: 340px;
+  margin: auto;
+
+  .login-form {
+    background: white;
+    -webkit-border-radius: 10px;
+       -moz-border-radius: 10px;
+         -o-border-radius: 10px;
+            border-radius: 10px;
+    box-shadow: 0 0 8px #000;
+    overflow: hidden;
+
+    form {
+      .form-input {
+        padding: 10px;
+      }
+
+      input[type='text'], input[type='password'] {
+        color: #888;
+        width: 100%;
+        padding: 4%;
+        border: none;
+        outline: none;
+
+        &:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 50px white inset; /* Change the color to your own background color */
+          -webkit-text-fill-color: #888;
+        }
+
+        &:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0 50px white inset;
+          -webkit-text-fill-color: #888;
+        }
+      }
+
+      button[type='submit'] {
+        background: #059fe6;
+        width: 100%;
+        font-size: 18px;
+        padding: 20px;
+        border: none;
+        @include transform(background 0.3s linear);
+
+        &:hover {
+          background: #0081bc;
+        }
+      }
+
+      hr {
+        margin: 0;
+      }
+    }
+  }
+}
