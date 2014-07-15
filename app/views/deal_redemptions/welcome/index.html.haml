@@ -4,7 +4,7 @@
 
     .login-box
       %p= DealRedemptions.config.welcome_notice
-      = form_tag redeem_path(''), method: 'get' do
+      = form_tag redemption_path(''), method: 'get' do
         .form-group
           %label{ for: 'company' }
           %select{ id: 'company', name: 'company', class: 'form-control', style: 'margin-bottom: 10px;', onchange: "window.location.href=this.form.action + this.form.company.value;" }
