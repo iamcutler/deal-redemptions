@@ -5,9 +5,7 @@ module DealRedemptions
     def new
       @company = Company.find_by_slug(params[:company])
 
-      if @company
-        @transaction = RedeemTransaction.new
-      else
+      unless @company
         redirect_to root_path
       end
     end

@@ -6,3 +6,11 @@
 div.page-header {
   text-align: center;
 }
+
+form[name="redemptionForm"] {
+  padding-bottom: 20px;
+}
+
+span.required {
+  color: red;
+}

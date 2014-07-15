@@ -1,7 +1,76 @@
 .page-header
   = image_tag DealRedemptions.config.logo
 
-.row
-  .col-md-6
+= form_for :redemption, html: { name: 'redemptionForm' } do |f|
+  .row
+    .col-md-12
+      %h2 Redeem your voucher(s):
+      %hr
 
-  .col-md-6
+    .col-md-12
+      %h4 Redemption codes:
+      %hr
+
+    .col-md-12
+      %h4 Shipping information:
+      %hr
+
+    .col-md-6
+      .form-group
+        = f.label :first_name, 'First Name <span class="required">*</span>'.html_safe
+        = f.text_field :first_name, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :last_name, 'Last Name <span class="required">*</span>'.html_safe
+        = f.text_field :last_name, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :email_address, 'Email Address <span class="required">*</span>'.html_safe
+        = f.email_field :email_address, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :phone
+        = f.text_field :phone, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :address1, 'Address 1 <span class="required">*</span>'.html_safe
+        = f.text_field :address1, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :address2, 'Address 2'
+        = f.text_field :address2, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :state, 'State <span class="required">*</span>'.html_safe
+        = f.text_field :state, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :zip_code, 'Zip Code <span class="required">*</span>'.html_safe
+        = f.text_field :zip_code, class: 'form-control'
+
+    .col-md-6
+      .form-group
+        = f.label :country, 'Country <span class="required">*</span>'.html_safe
+        = f.text_field :country, class: 'form-control'
+
+    .col-md-12
+      .form-group
+        = f.label :comments
+        = f.text_area :comments, rows: '6', class: 'form-control'
+
+    .col-md-6
+      = check_box 'redemption', 'mailing_list', {}, 1, 0
+      Keep me informed on all the latest news and upcoming events.
+
+    .col-md-6
+      = f.button 'Submit', class: 'btn btn-lg btn-primary', style: 'float: right;'
+
+.app-credit
+  = render '/deal_redemptions/shared_partials/powered'
