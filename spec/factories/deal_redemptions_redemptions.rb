@@ -11,7 +11,7 @@ module DealRedemptions
       state "CA"
       zip_code "91351"
       country "United States"
-      commments "Comments going here."
+      comments "Comments going here."
     end
   end
 end
