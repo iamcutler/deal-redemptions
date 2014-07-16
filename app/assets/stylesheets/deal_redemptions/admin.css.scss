@@ -1,13 +1,14 @@
 // Stylesheet form deal redemptions admin interface
 
-// 1.0 Globals
-html, body {
-  background: #444;
-  color: #FFF;
-  font-family: "ProximaNovaLight", "Helvetica Neue", "Helvetica", "sans-serif";
-  margin: 0;
-  padding: 0;
-  display: initial;
+@font-face {
+  font-family: 'ss-glyphs';
+  src:url('/assets/ss-glyphs.eot?k0r2ye');
+  src:url('/assets/ss-glyphs.eot?#iefixk0r2ye') format('embedded-opentype'),
+  url('/assets/ss-glyphs.woff?k0r2ye') format('woff'),
+  url('/assets/ss-glyphs.ttf?k0r2ye') format('truetype'),
+  url('/assets/ss-glyphs.svg?k0r2ye#ss-glyphs') format('svg');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @mixin transform($statement) {
@@ -17,8 +18,21 @@ html, body {
   transition: $statement;
 }
 
+html, body {
+  color: #444;
+  font-family: "ProximaNovaLight", "Helvetica Neue", "Helvetica", "sans-serif";
+  margin: 0;
+  padding: 0;
+  display: initial;
+
+  .login {
+    background: #444;
+    color: #FFF;
+  }
+}
+
 // ===============================================================
-// 1.0 Structure
+// 1.0 Login
 // ===============================================================
 
 // Login form
