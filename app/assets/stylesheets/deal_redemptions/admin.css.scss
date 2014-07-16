@@ -110,3 +110,154 @@ html, body {
     }
   }
 }
+
+
+// ===============================================================
+// 2.0 Global/General
+// ===============================================================
+// Sidebar/Navigation
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  background: #444;
+
+  .account-header {
+    background: #333;
+    height: 50px;
+    border-bottom: 1px #696969 solid;
+
+    .account-logo {
+      background: #FFF;
+      width: 50px;
+      height: 50px;
+      padding: 10px;
+      overflow: hidden;
+
+      img {
+        max-width: 30px;
+      }
+    }
+
+    p {
+      &.site-name {
+        color: #FFF;
+        font-size: 14px;
+        padding: 15px 10px;
+      }
+    }
+  }
+
+  nav {
+    ul {
+      padding: 0;
+      margin: 0;
+
+      li {
+        list-style: none;
+        height: 40px;
+
+        a:link, a:visited {
+          float: left;
+          width: 100%;
+          height: 40px;
+          color: #CCC;
+          text-decoration: none;
+          line-height: 25px;
+          padding: 8px 20px;
+          @include transform(background 0.2s linear);
+
+          &:hover {
+            background: #333;
+          }
+
+          &.active {
+            color: #FFF;
+            background: #333;
+          }
+        }
+      }
+    }
+  }
+}
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #f0f0f0;
+  width: 100%;
+  height: 50px;
+  border-bottom: 1px #CCC solid;
+  padding-left: 220px;
+
+  h1 {
+    font-size: 24px;
+    margin: 12px 0;
+
+    &.dashboard {
+      &:before {
+        content: '\e600'
+      }
+    }
+  }
+}
+
+// Glyph icons
+i {
+  width: 30px;
+  font-family: "ss-glyphs";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-align: center;
+  line-height: 1;
+  padding-right: 10px;
+
+  &.dashboard {
+    &:before {
+      content: '\e600'
+    }
+  }
+
+  &.redemptions {
+    &:before {
+      content: '\e601'
+    }
+  }
+
+  &.products {
+    &:before {
+      content: '\e602'
+    }
+  }
+
+  &.companies {
+    &:before {
+      content: '\e603'
+    }
+  }
+
+  &.import {
+    &:before {
+      content: '\e604'
+    }
+  }
+
+  &.settings {
+    &:before {
+      content: '\e605'
+    }
+  }
+}
+
+// Main content
+.content-wrapper {
+  padding: 70px 20px 20px 220px;
+}
+
+
+

@@ -1,0 +1,18 @@
+%section.sidebar
+  .account-header
+    %p{class: 'site-name'}= site_name(DealRedemptions.config.site_name)
+
+  %nav{class: 'main'}
+    %ul
+      %li
+        = admin_link_to('<i class="dashboard"></i> Dashboard'.html_safe, admin_dashboard_path, {class: 'sidebar-link'})
+      %li
+        = admin_link_to('<i class="redemptions"></i> Redemptions'.html_safe, '', {class: 'sidebar-link'})
+      %li
+        = admin_link_to('<i class="products"></i> Products'.html_safe, '', {class: 'sidebar-link'})
+      %li
+        = admin_link_to('<i class="companies"></i> Companies'.html_safe, '', {class: 'sidebar-link'})
+      %li
+        = admin_link_to('<i class="import"></i> Import/Export'.html_safe, '', {class: 'sidebar-link'})
+      %li
+        = admin_link_to('<i class="settings"></i> Settings'.html_safe, '', {class: 'sidebar-link'})
