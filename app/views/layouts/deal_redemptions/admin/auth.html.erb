@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= DealRedemptions.config.site_name %> | <%= yield(:title).blank? ? "Administration Panel" : yield(:title) %></title>
+  <%= stylesheet_link_tag    "deal_redemptions/application", media: "all" %>
+  <%= stylesheet_link_tag    "deal_redemptions/admin", media: "all" %>
+  <%= javascript_include_tag "deal_redemptions/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body class="login">
+
+<%= yield %>
+
+</body>
+</html>
