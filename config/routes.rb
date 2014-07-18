@@ -11,5 +11,7 @@ DealRedemptions::Engine.routes.draw do
   namespace :admin do
     get '/', to: 'dashboard#index', as: 'dashboard'
     get 'login', to: 'sessions#index', as: 'login'
+
+    resources :companies
   end
 end
