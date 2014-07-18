@@ -7,5 +7,13 @@
     Make modifications to an existing deal site.
     %hr
 
+    %h4 Want to remove this company?
+    %h5 Click the button below. You can <strong>NOT</strong> undo this action.
+    %h5 You can make a company unactive so customers can't redeem as an alternative.
+
+    = button_to 'Delete Company', admin_company_path, method: :delete, class: 'btn btn-danger', onclick: 'if(!confirm("Are you sure you want to delete this company?")) return false;'
+    %hr
+
+
   .col-md-8
     = render 'form'

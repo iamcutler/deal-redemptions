@@ -113,26 +113,27 @@ html, body {
 
 
 // ===============================================================
-// 2.0 Global/General
+// 2.0 Basic Structure
 // ===============================================================
 // Sidebar/Navigation
 .sidebar {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   bottom: 0;
   width: 200px;
   background: #444;
+  z-index: 3;
 
   .account-header {
     background: #333;
-    height: 50px;
+    height: 60px;
     border-bottom: 1px #696969 solid;
 
     .account-logo {
       background: #FFF;
-      width: 50px;
-      height: 50px;
+      width: 60px;
+      height: 60px;
       padding: 10px;
       overflow: hidden;
 
@@ -145,7 +146,7 @@ html, body {
       &.site-name {
         color: #FFF;
         font-size: 14px;
-        padding: 15px 10px;
+        padding: 20px 10px;
       }
     }
   }
@@ -188,14 +189,16 @@ html, body {
   top: 0;
   left: 0;
   background: #f0f0f0;
+  background: rgba(240,240,240,0.8);
   width: 100%;
-  height: 50px;
+  height: 60px;
   border-bottom: 1px #CCC solid;
   padding-left: 220px;
+  z-index: 2;
 
   h1 {
     font-size: 24px;
-    margin: 12px 0;
+    margin: 16px 0;
 
     &.dashboard {
       &:before {
@@ -259,5 +262,44 @@ i {
   padding: 70px 20px 20px 220px;
 }
 
+label, input, textarea, select {
+  font-family: "Helvetica Neue", "Helvetica";
+}
+
+label {
+  font-size: 14px;
+}
+
+// ===============================================================
+// 2.1 Page Structure
+// ===============================================================
+table.table {
+  &.default {
+    thead {
+      tr {
+        td {
+          padding: 10px 20px;
+          font: 18px "ProximaNovaRegular";
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        &:nth-last-child(1) {
+          border-bottom: 1px #DDD solid;
+        }
+
+        &:hover {
+          background: #f8f8f8;
+        }
+
+        td {
+          padding: 20px;
+        }
+      }
+    }
+  }
+}
 
 
