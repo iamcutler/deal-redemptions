@@ -24,6 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "haml-rails"
   #Admin
   s.add_dependency "kaminari"
+  s.add_dependency "bcrypt", "~> 3.1.7"
   #testing
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
