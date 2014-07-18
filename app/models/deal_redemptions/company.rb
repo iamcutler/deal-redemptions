@@ -5,13 +5,7 @@ module DealRedemptions
 
     validates :name, :slug, presence: true, uniqueness: true
 
-    default_scope { where(active: 1) }
-
-    private
-
-      def company_params
-        # Whitelist permitted parameters
-        params.require(:company).permit(:name, :description, :url, :slug, :active)
-      end
+    scope :active_by_name, -> { where(active: 1) }
+    scope :all_by_name, -> { all.order(:name) }
   end
 end
