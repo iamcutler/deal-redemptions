@@ -1,0 +1,11 @@
+- page_title "New Company"
+- admin_page_title "<i class=\"companies\"></i> #{link_to 'Companies', admin_companies_path} / New Company".html_safe
+
+.row
+  .col-md-4
+    %h3 New company
+    Add new deal site for customers to redeem.
+    %hr
+
+  .col-md-8
+    = render 'form'

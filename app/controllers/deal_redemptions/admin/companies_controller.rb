@@ -11,6 +11,20 @@ module DealRedemptions
       @companies = DealRedemptions::Company.all_by_name
     end
 
+    def new
+      @company = DealRedemptions::Company.new
+    end
+
+    def create
+      @company = DealRedemptions::Company.new(company_params)
+
+      if @company.save
+        redirect_to admin_companies_path, notice: 'Company successfully added.'
+      else
+        render :new
+      end
+    end
+
     def edit
     end
 

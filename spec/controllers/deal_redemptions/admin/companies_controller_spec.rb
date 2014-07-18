@@ -18,6 +18,39 @@ module DealRedemptions
       end
     end
 
+    describe 'GET #new' do
+      it 'returns 200 status' do
+        get :new
+
+        expect(response).to be_success
+        expect(response).to have_http_status(200)
+      end
+    end
+
+    describe 'POST #create' do
+      before(:each) do
+        @attr = FactoryGirl.attributes_for(:company)
+      end
+
+      it 'save new company successfully' do
+        post :create, company: @attr
+
+        expect(response).to redirect_to(admin_companies_path)
+      end
+
+      it 'send successful flash notice' do
+        post :create, company: @attr
+
+        expect(flash[:notice]).to eq('Company successfully added.')
+      end
+
+      it 'redirects to new on unsuccessful create' do
+        post :create, company: FactoryGirl.attributes_for(:company, name: '')
+
+        expect(response).to render_template :new
+      end
+    end
+
     describe 'GET #edit' do
       it 'assigns @company' do
         company = @company
