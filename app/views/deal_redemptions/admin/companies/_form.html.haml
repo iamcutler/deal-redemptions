@@ -1,0 +1,25 @@
+- if @company.errors.any?
+  .alert.alert-danger
+    %ul
+    - @company.errors.full_messages.each do |msg|
+      %li
+        = msg
+
+= form_for [:admin, @company] do |f|
+  .form-group
+    = f.label :name
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :description
+    = f.text_area :description, class: 'form-control', rows: 10
+  .form-group
+    = f.label :url, 'URL'
+    = f.text_field :url, class: 'form-control'
+  .form-group
+    = f.label :slug
+    = f.text_field :slug, class: 'form-control'
+  .form-group
+    = f.label :active, 'Current Active'
+    = f.select :active, [['Yes', 1], ['No', 0]], {}, { class: 'form-control' }
+  .form-group.pull-right
+    =f.submit @company.new_record? ? "Create Company" : "Edit Company", class: 'btn btn-primary'

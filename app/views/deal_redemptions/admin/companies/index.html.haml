@@ -1,0 +1,31 @@
+- page_title 'Companies'
+- admin_page_title '<i class="companies"></i> Companies'.html_safe
+
+= render '/deal_redemptions/admin/shared/flash'
+
+%table{class: 'table default'}
+  %thead
+    %tr
+      %td
+        Name:
+      %td
+        URL:
+      %td
+        Slug:
+      %td
+        Active:
+  %tbody
+  - @companies.each do |c|
+    %tr
+      %td
+        = link_to c.name, edit_admin_company_path(c.id)
+      %td
+        = c.url
+      %td
+        = c.slug
+      %td
+        = c.active == 1 ? 'Yes' : 'No'
+
+%ul{class: 'pagination'}
+  %li= link_to '&laquo;'.html_safe, '#'
+  %li= link_to '&raquo;'.html_safe, '#'

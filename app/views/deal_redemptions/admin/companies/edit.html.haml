@@ -1,0 +1,11 @@
+- page_title "#{@company.name}"
+- admin_page_title "<i class=\"companies\"></i> #{link_to 'Companies', admin_companies_path} / #{@company.name}".html_safe
+
+.row
+  .col-md-4
+    %h3 Edit existing company
+    Make modifications to an existing deal site.
+    %hr
+
+  .col-md-8
+    = render 'form'
