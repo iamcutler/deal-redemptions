@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140715041757) do
+ActiveRecord::Schema.define(version: 20140718200319) do
 
   create_table "deal_redemptions_companies", force: true do |t|
     t.string   "name",                    null: false
@@ -79,6 +79,17 @@ ActiveRecord::Schema.define(version: 20140715041757) do
   add_index "deal_redemptions_redemptions", ["transaction_id"], name: "index_deal_redemptions_redemptions_on_transaction_id"
 
   create_table "deal_redemptions_tests", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "deal_redemptions_users", force: true do |t|
+    t.string   "first_name",                                    null: false
+    t.string   "last_name",                                     null: false
+    t.string   "email",                                         null: false
+    t.string   "password_hash",                                 null: false
+    t.string   "password_salt",                                 null: false
+    t.datetime "last_login",    default: '2014-07-18 22:44:18'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
