@@ -1,0 +1,43 @@
+- page_title 'Settings'
+- admin_page_title '<i class="settings"></i> Settings'.html_safe
+
+.row
+  .col-md-4
+    %h3 Application Settings
+    %h5 Make modifications to your redemptions application.
+    %hr
+
+  .col-md-8
+    %h3 Change My Password:
+    .row
+      .col-md-6
+        .form-group
+          = label_tag 'New Password:'
+          = text_field_tag '', '', class: 'form-control'
+      .col-md-6
+        .form-group
+          = label_tag 'New Password Comfirmation:'
+          = text_field_tag '', '', class: 'form-control'
+      .col-md-12
+        = button_tag 'Submit', class: 'btn btn-primary pull-right'
+
+    %hr
+    %h3 Staff Members:
+
+    %table{class: 'table default'}
+      %thead
+        %tr
+          %td Name:
+          %td Email:
+          %td Role:
+          %td Last Login Date:
+          %td
+      %tbody
+        %tr
+        - @users.each do |u|
+          %td= link_to "#{u.first_name} #{u.last_name}", edit_admin_user_path(u.id)
+          %td= u.email
+          %td Owner
+          %td= u.last_login
+          %td= button_to 'Delete', admin_user_path(u.id), class: 'remove-btn pull-right', method: :delete, onclick: 'if(!confirm("Are you sure you want to delete this user? This can NOT be undone!")) return false;'
+

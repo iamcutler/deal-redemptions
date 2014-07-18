@@ -270,6 +270,17 @@ label {
   font-size: 14px;
 }
 
+.remove-btn {
+  background: none;
+  color: red;
+  border: none;
+  padding: 0;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 // ===============================================================
 // 2.1 Page Structure
 // ===============================================================
