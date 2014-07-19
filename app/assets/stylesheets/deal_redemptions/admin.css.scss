@@ -302,6 +302,8 @@ table.table {
 
     tbody {
       tr {
+        @include transform(background 0.2s linear);
+
         &:nth-last-child(1) {
           border-bottom: 1px #DDD solid;
         }
