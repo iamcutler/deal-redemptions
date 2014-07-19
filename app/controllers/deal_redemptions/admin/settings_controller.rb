@@ -4,6 +4,8 @@ module DealRedemptions
   class Admin::SettingsController < ApplicationController
     layout '/deal_redemptions/admin/default'
 
+    before_action :admin_authorize
+
     def index
       @users = DealRedemptions::User.all.order(:first_name)
     end

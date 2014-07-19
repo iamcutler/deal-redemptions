@@ -5,6 +5,7 @@ module DealRedemptions
     layout '/deal_redemptions/admin/default'
     rescue_from ActiveRecord::RecordNotFound, with: :redirect_to_companies
 
+    before_action :admin_authorize
     before_action :set_company, only: [:show, :edit, :update, :destroy]
 
     def index
