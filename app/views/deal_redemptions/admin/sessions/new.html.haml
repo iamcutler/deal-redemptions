@@ -1,0 +1,23 @@
+.login-heading
+  %h1= DealRedemptions.config.site_name
+
+.login-subheading
+  %h4 Login to manage your redemptions
+
+.login-container
+  - if flash.any?
+    .alert.alert-danger
+      %ul
+        - flash.each do |name, msg|
+          %li= msg
+
+  .login-form
+    = form_tag admin_sessions_path do
+      .form-input
+        = text_field_tag :email, params[:email], placeholder: 'Email Address:', required: 'required'
+
+      %hr
+
+      .form-input
+        = password_field_tag :password, placeholder: 'Password:', required: 'required'
+      = submit_tag 'Login'

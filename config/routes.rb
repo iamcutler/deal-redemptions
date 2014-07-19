@@ -10,8 +10,12 @@ DealRedemptions::Engine.routes.draw do
   # Admin
   namespace :admin do
     get '/', to: 'dashboard#index', as: 'dashboard'
-    get 'login', to: 'sessions#index', as: 'login'
+    get 'login', to: 'sessions#new', as: 'login'
+    get 'logout', to: 'sessions#destroy', as: 'logout'
+    get 'settings', to: 'settings#index', as: 'settings'
 
+    resources :user
     resources :companies
+    resources :sessions
   end
 end
