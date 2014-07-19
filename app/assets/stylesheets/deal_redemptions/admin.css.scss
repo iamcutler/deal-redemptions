@@ -197,6 +197,7 @@ html, body {
   z-index: 2;
 
   h1 {
+    float: left;
     font-size: 24px;
     margin: 16px 0;
 
@@ -205,6 +206,10 @@ html, body {
         content: '\e600'
       }
     }
+  }
+
+  .pull-right {
+    padding: 13px;
   }
 }
 

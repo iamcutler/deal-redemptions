@@ -1,2 +1,5 @@
 .topbar
   %h1= yield(:admin_page_title)
+
+  .pull-right
+    = link_to 'Logout', admin_logout_path, class: 'btn btn-info' if current_admin_user
