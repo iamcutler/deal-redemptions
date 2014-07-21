@@ -4,7 +4,7 @@
 .row
   .col-md-4
     %h3 Application Settings
-    %h5 Make modifications to your redemptions application.
+    %h5 Make modifications to your redemption's application.
     %hr
 
   .col-md-8
@@ -22,7 +22,11 @@
         = button_tag 'Submit', class: 'btn btn-primary pull-right'
 
     %hr
-    %h3 Staff Members:
+    .row
+      .col-md-8
+        %h3 Staff Users:
+      .col-md-4
+        = link_to 'New User', '', class: 'btn btn-default pull-right', data: { toggle: 'modal', target: '#newUserModal' }
 
     %table{class: 'table default'}
       %thead
@@ -41,3 +45,5 @@
           %td= u.last_login
           %td= button_to 'Delete', admin_user_path(u.id), class: 'remove-btn pull-right', method: :delete, onclick: 'if(!confirm("Are you sure you want to delete this user? This can NOT be undone!")) return false;' if u.id != current_admin_user.id
 
+
+= render 'new_user_modal'
