@@ -8,10 +8,11 @@ class CreateDealRedemptionsRedemptions < ActiveRecord::Migration
       t.string :phone
       t.string :address1,       null: false
       t.string :address2
+      t.string :city,           null: false
       t.string :state,          null: false
       t.string :zip_code,       null: false
       t.string :country,        null: false, default: 'USA'
-      t.text :commments
+      t.text :comments
 
       t.timestamps
     end
