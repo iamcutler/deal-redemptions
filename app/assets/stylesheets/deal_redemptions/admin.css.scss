@@ -320,4 +320,21 @@ table.table {
   }
 }
 
+// ===============================================================
+// 3.0 Products
+// ===============================================================
+.no-current-products {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 80px;
 
+  i {
+    &.products {
+      &:before {
+        width: 100%;
+        font-size: 140px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
