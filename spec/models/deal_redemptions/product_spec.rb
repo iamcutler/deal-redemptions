@@ -13,5 +13,11 @@ module DealRedemptions
         expect(@product).to be_valid
       end
     end
+
+    it 'includes protocol if not present before validation' do
+      product = FactoryGirl.create(:product, url: 'www.redemptions.com')
+
+      expect(product.url).to eq('http://www.redemptions.com')
+    end
   end
 end
