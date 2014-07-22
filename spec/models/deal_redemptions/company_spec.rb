@@ -17,5 +17,11 @@ module DealRedemptions
         expect(@company).to be_valid
       end
     end
+
+    it 'includes url protocol if not present' do
+      company = FactoryGirl.create(:company, url: 'www.groupon.com')
+
+      expect(company.url).to eq('http://www.groupon.com')
+    end
   end
 end
