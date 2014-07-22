@@ -1,0 +1,16 @@
+- if @product.errors.any?
+  .alert.alert-danger
+    %ul
+    - @product.errors.full_messages.each do |msg|
+      %li
+        = msg
+
+= form_for [:admin, @product] do |f|
+  .form-group
+    = f.label :name, 'Name:'
+    = f.text_field :name, class: 'form-control'
+  .form-group
+    = f.label :url, 'URL:'
+    = f.text_field :url, class: 'form-control'
+  .form-group.pull-right
+    = f.submit @product.new_record? ? "Create Product" : "Edit Product", class: 'btn btn-primary'

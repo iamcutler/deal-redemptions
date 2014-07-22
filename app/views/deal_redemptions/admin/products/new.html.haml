@@ -1,0 +1,11 @@
+- page_title "New Product"
+- admin_page_title "<i class=\"products\"></i> #{link_to 'Products', admin_products_path} / New Product".html_safe
+
+.row
+  .col-md-4
+    %h3 New product
+    Add new product to track with redemption codes
+    %hr
+
+  .col-md-8
+    = render 'form'

@@ -1,0 +1,30 @@
+- page_title 'Products'
+- admin_page_title '<i class="products"></i> Products'.html_safe
+
+= render '/deal_redemptions/admin/shared/flash'
+
+.row
+  .col-md-12
+    = link_to 'New Product', new_admin_product_path, class: 'btn btn-primary pull-right'
+%hr
+
+- if @products.count > 0
+  %table{class: 'table default'}
+    %thead
+      %tr
+        %td
+          Name:
+    %tbody
+    - @products.each do |c|
+      %tr
+        %td
+          = link_to c.name, edit_admin_product_path(c.id)
+
+  %ul{class: 'pagination'}
+    %li= link_to '&laquo;'.html_safe, '#'
+    %li= link_to '&raquo;'.html_safe, '#'
+
+- else
+  .no-current-products
+    %i.products.clearfix
+    No Current Products
