@@ -4,9 +4,15 @@ module DealRedemptions
   RSpec.describe Admin::DashboardController, :type => :controller do
     routes { DealRedemptions::Engine.routes }
 
+    let(:valid_session) { { admin_user_id: 1 } }
+
+    before(:each) do
+      FactoryGirl.create(:user)
+    end
+
     describe "GET 'index'" do
       it "returns http success" do
-        get :index
+        get :index, nil, valid_session
         expect(response).to be_success
       end
     end

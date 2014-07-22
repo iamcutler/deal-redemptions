@@ -4,23 +4,30 @@ module DealRedemptions
   RSpec.describe Admin::CompaniesController, :type => :controller do
     routes { DealRedemptions::Engine::routes }
 
-    describe 'GET #index' do
-      it 'returns successful 200' do
-        get :index
+    let(:valid_session) { { admin_user_id: 1 } }
 
+    before(:each) do
+      @user = FactoryGirl.create(:user)
+    end
+
+    describe 'GET #index' do
+      before(:each) do
+        get :index, nil, valid_session
+      end
+
+      it 'returns successful 200' do
         expect(response).to be_success
         expect(response).to have_http_status(200)
       end
 
       it 'assigns @companies' do
-        get :index
         expect(assigns(:companies)).to_not be_nil
       end
     end
 
     describe 'GET #new' do
       it 'returns 200 status' do
-        get :new
+        get :new, nil, valid_session
 
         expect(response).to be_success
         expect(response).to have_http_status(200)
@@ -30,6 +37,7 @@ module DealRedemptions
     describe 'POST #create' do
       before(:each) do
         @attr = FactoryGirl.attributes_for(:company)
+        session[:admin_user_id] = 1
       end
 
       it 'save new company successfully' do
@@ -54,13 +62,13 @@ module DealRedemptions
     describe 'GET #edit' do
       it 'assigns @company' do
         company = @company
-        get :edit, { id: 1 }
+        get :edit, { id: 1 }, valid_session
 
         expect(assigns(:company)).to eq(company)
       end
 
       it 'redirects if id param is not found' do
-        get :edit, { id: 100000 }
+        get :edit, { id: 100000 }, valid_session
         expect(response).to redirect_to(admin_companies_path)
       end
     end
@@ -68,6 +76,7 @@ module DealRedemptions
     describe 'PUT #update' do
       before(:each) do
         @company = FactoryGirl.create(:company)
+        session[:admin_user_id] = 1
       end
 
       it 'should redirect to companies #index on successful update' do
@@ -92,6 +101,7 @@ module DealRedemptions
     describe 'DELETE #destory' do
       before(:each) do
         @company = FactoryGirl.create(:company)
+        session[:admin_user_id] = 1
       end
 
       it 'redirects after successful destory' do
