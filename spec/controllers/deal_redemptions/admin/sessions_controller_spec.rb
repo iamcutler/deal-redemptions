@@ -4,9 +4,9 @@ module DealRedemptions
   RSpec.describe Admin::SessionsController, :type => :controller do
     routes { DealRedemptions::Engine.routes }
 
-    describe "GET 'index'" do
+    describe "GET 'new'" do
       it "returns http success" do
-        get 'index'
+        get :new
         expect(response).to be_success
       end
     end
