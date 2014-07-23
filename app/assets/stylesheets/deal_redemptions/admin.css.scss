@@ -1,3 +1,4 @@
+@import "lib.css.scss";
 // Stylesheet form deal redemptions admin interface
 
 @font-face {
@@ -9,13 +10,6 @@
   url('/assets/ss-glyphs.svg?k0r2ye#ss-glyphs') format('svg');
   font-weight: normal;
   font-style: normal;
-}
-
-@mixin transform($statement) {
-  -webkit-transition: $statement;
-  -moz-transition: $statement;
-  -o-transition: $statement;
-  transition: $statement;
 }
 
 html, body {
