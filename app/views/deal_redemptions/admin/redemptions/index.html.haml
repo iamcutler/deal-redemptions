@@ -1,0 +1,41 @@
+- page_title 'Redemptions'
+- admin_page_title '<i class="redemptions"></i> Redemptions'.html_safe
+
+= render '/deal_redemptions/admin/shared/flash'
+
+%hr
+
+%table{class: 'table default'}
+  %thead
+    %tr
+      %td
+        id
+      %td
+        Name:
+      %td
+        Email:
+      %td
+        Company:
+      %td
+        Redeem Count:
+      %td
+        Redeemed Date:
+  %tbody
+  - @transactions.each do |c|
+    %tr
+      %td
+        = link_to "##{c.id}", admin_redemption_path(c.id)
+      %td
+        = link_to "#{c.redemption[0].first_name} #{c.redemption[0].last_name}", admin_redemption_path(c.id)
+      %td
+        = c.redemption[0].email_address
+      %td
+        = c.company.name
+      %td
+        = c.redemption.count
+      %td
+        = c.created_at
+
+%ul{class: 'pagination'}
+  %li= link_to '&laquo;'.html_safe, '#'
+  %li= link_to '&raquo;'.html_safe, '#'

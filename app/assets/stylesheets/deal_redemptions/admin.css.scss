@@ -289,7 +289,7 @@ table.table {
       tr {
         td {
           padding: 10px 20px;
-          font: 18px "ProximaNovaRegular";
+          font: 14px "ProximaNovaRegular";
         }
       }
     }
@@ -307,7 +307,45 @@ table.table {
         }
 
         td {
-          padding: 20px;
+          font-size: 14px;
+          padding: 16px;
+        }
+      }
+    }
+  }
+}
+
+.row, .row-fluid {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6,
+  .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
+    &.description-wrapper {
+      border: 1px #e0e0e0 solid;
+      @include border-radius(6px);
+      margin-bottom: 10px;
+
+      header {
+        background: #f0f0f0;
+        color: #428bca;
+        font: 16px "ProximaNovaRegular";
+        padding: 10px;
+        margin: 0;
+        border-bottom: 1px #e0e0e0 solid;
+        @include border-top-left-radius(6px);
+        @include border-top-right-radius(6px);
+      }
+
+      .row, .row-fluid {
+        &.redemption-description {
+          padding: 10px 0;
+
+          strong {
+            &.title {
+              float: left;
+              width: 100%;
+              font-family: "ProximaNovaRegular";
+              font-style: bold;
+            }
+          }
         }
       }
     }
@@ -332,3 +370,4 @@ table.table {
     }
   }
 }
+

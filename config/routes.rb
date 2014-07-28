@@ -17,6 +17,7 @@ DealRedemptions::Engine.routes.draw do
 
     resources :user, except: [:new]
     resources :companies
+    resources :redemptions
     resources :products, except: [:show]
     resources :sessions
   end

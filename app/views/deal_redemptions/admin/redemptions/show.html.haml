@@ -1,0 +1,64 @@
+- page_title "Redemption ##{@transaction.id}"
+- admin_page_title "<i class=\"redemptions\"></i> #{link_to 'Redemptions', admin_redemptions_path} / ##{@transaction.id}".html_safe
+
+.row-fluid
+  .col-md-8.description-wrapper
+    .row
+      %header
+        Redemption Information:
+
+    .row.redemption-description
+      .col-md-6
+        %strong{class: 'title'} Name:
+        = "#{@redemption.first_name} #{@redemption.last_name}"
+      .col-md-6
+        %strong{class: 'title'} Email Address:
+        = @redemption.email_address
+      .col-md-6
+        %strong{class: 'title'} Phone:
+        = @redemption.phone
+      .col-md-6
+        %strong{class: 'title'} Address 1:
+        = @redemption.address1
+      .col-md-6
+        %strong{class: 'title'} Address 2:
+        = @redemption.address2
+      .col-md-6
+        %strong{class: 'title'} City:
+        = @redemption.city
+      .col-md-6
+        %strong{class: 'title'} State:
+        = @redemption.state
+      .col-md-6
+        %strong{class: 'title'} Zip Code:
+        = @redemption.zip_code
+      .col-md-12
+        %strong{class: 'title'} Country:
+        = @redemption.country
+      .col-md-12
+        %strong{class: 'title'} Comments:
+        = @redemption.comments
+
+
+  .col-md-4
+    .col-md-12.description-wrapper
+      .row
+        %header
+          Company:
+
+      .row-fluid{style: 'padding: 10px 0;'}
+        = label_tag 'Name:'
+        = link_to @transaction.company.name, edit_admin_company_path(@transaction.company.id)
+
+    .col-md-12.description-wrapper
+      .row
+        %header
+          Codes Redeemed:
+
+      .row.redemption-description
+        - @transaction.redeem_code.each do |c|
+          - if c.redeemed?
+            .col-md-12
+              = label_tag 'Code:'
+              = c.code
+

@@ -1,6 +1,7 @@
 module DealRedemptions
   FactoryGirl.define do
     factory :redemption, :class => Redemption do
+      id 1
       transaction_id 1
       first_name "John"
       last_name "Doe"
