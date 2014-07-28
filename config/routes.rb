@@ -14,7 +14,7 @@ DealRedemptions::Engine.routes.draw do
     get 'logout', to: 'sessions#destroy', as: 'logout'
     get 'settings', to: 'settings#index', as: 'settings'
 
-    resources :user
+    resources :user, except: [:new]
     resources :companies
     resources :products, except: [:show]
     resources :sessions
