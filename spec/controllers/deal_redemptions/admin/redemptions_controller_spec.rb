@@ -45,17 +45,24 @@ module DealRedemptions
                       FactoryGirl.create(:redeem_transaction_3)]
     end
 
-    describe "GET index" do
+    describe "GET #index" do
       it "assigns all transactions as @transactions" do
         get :index, {}, valid_session
         expect(assigns(:transactions)).to eq(@transaction)
       end
     end
 
-    describe "GET show" do
-      it "assigns the requested transaction as @transaction" do
+    describe "GET #show" do
+      before(:each) do
         get :show, {:id => @transaction[0].id}, valid_session
+      end
+
+      it "assigns the requested transaction as @transaction" do
         expect(assigns(:transaction)).to eq(@transaction[0])
+      end
+
+      it "assigns redemption to @redemption to display user info" do
+        expect(assigns(:redemption)).to eq(@transaction[0].redemption[0])
       end
     end
 
