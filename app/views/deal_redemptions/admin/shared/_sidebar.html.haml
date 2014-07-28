@@ -7,12 +7,12 @@
       %li
         = admin_link_to('<i class="dashboard"></i> Dashboard'.html_safe, admin_dashboard_path, {class: 'sidebar-link'})
       %li
-        = admin_link_to('<i class="redemptions"></i> Redemptions'.html_safe, '', {class: 'sidebar-link'})
+        = admin_link_to('<i class="redemptions"></i> Redemptions'.html_safe, admin_redemptions_path, {class: 'sidebar-link'})
       %li
         = admin_link_to('<i class="products"></i> Products'.html_safe, admin_products_path, {class: 'sidebar-link'})
       %li
         = admin_link_to('<i class="companies"></i> Companies'.html_safe, admin_companies_path, {class: 'sidebar-link'})
       %li
-        = admin_link_to('<i class="import"></i> Import/Export'.html_safe, '', {class: 'sidebar-link'})
+        = admin_link_to('<i class="import"></i> Import/Export'.html_safe, admin_import_path, {class: 'sidebar-link'})
       %li
         = admin_link_to('<i class="settings"></i> Settings'.html_safe, admin_settings_path, {class: 'sidebar-link'})
