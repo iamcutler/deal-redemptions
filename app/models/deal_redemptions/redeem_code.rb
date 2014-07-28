@@ -6,6 +6,8 @@ module DealRedemptions
 
     validates :code, presence: true
 
+    scope :redeemed, -> { where(status: 2) }
+
     enum status: { void: 0, active: 1, redeemed: 2 }
   end
 end
