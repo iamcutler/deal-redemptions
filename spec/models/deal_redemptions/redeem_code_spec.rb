@@ -34,5 +34,24 @@ module DealRedemptions
         expect(@redeem_code.redeemed?).to eq(true)
       end
     end
+
+    describe 'validate redemption code' do
+      before(:each) do
+        @company = FactoryGirl.create(:company)
+        @code = FactoryGirl.create(:redeem_code)
+      end
+
+      it 'return true if code is valid' do
+        expect(@code.validate_code({ company: @code.company.slug, code: @code.code })).to eq(true)
+      end
+
+      it 'return false if code is used or does not match' do
+        expect(@code.validate_code({ company: @code.company.slug, code: '' })).to eq(false)
+      end
+
+      it 'return false params are not provided' do
+        expect(@code.validate_code({})).to eq(false)
+      end
+    end
   end
 end
