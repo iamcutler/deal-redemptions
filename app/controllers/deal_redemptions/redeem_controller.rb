@@ -11,7 +11,16 @@ module DealRedemptions
     end
 
     def create
+    end
 
+    # Validate valid redemption codes
+    def validate_code
+      redeem_code = DealRedemptions::RedeemCode.find_by_code(params[:code])
+      if redeem_code
+        @redeem = redeem_code.validate_code(params)
+      else
+        @redeem = false
+      end
     end
   end
 end
