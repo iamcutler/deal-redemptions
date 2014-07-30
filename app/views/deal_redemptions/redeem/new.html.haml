@@ -5,12 +5,28 @@
   .row
     .col-md-12
       %h2 Redeem your voucher(s):
-      %hr
 
-    .col-md-12
-      %h4 Redemption codes:
-      %hr
+    .clearfix
+    %hr
 
+    .col-md-12.pull-right
+      = link_to '', '', class: 'add-button', style: 'float: right;'
+      %span{class: 'redeem-tip'} Add additional voucher codes
+
+    .clearfix
+    %hr
+
+  .row#redemption_codes
+    .code-alert
+      Please enter a valid redemption code
+
+    = f.fields_for :redeem_code do |c|
+      .col-md-6
+        .form-group
+          = c.label :code, 'Voucher Code 1'
+          = c.text_field :code, name: 'redemption[redeem_code][][code]', class: 'form-control'
+
+  .row
     .col-md-12
       %h4 Shipping information:
       %hr

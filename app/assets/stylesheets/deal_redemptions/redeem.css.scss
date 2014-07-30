@@ -2,6 +2,7 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+@import 'lib.css.scss';
 
 div.page-header {
   text-align: center;
@@ -13,4 +14,43 @@ form[name="redemptionForm"] {
 
 span.required {
   color: red;
+}
+
+span.redeem-tip {
+  float: right;
+  font-size: 14px;
+  margin: 15px 10px 0 0;
+}
+
+a.add-button:link,
+a.add-button:visited {
+  color: #CCC;
+  width: 50px;
+  height: 50px;
+  font: 30px 'ProximaNovaBold';
+  padding: 15px;
+  line-height: 16px;
+  display: block;
+  border: 1px #CCC solid;
+  @include border-radius(100px);
+  @include transform(all 0.4s ease);
+
+  &:hover {
+    color: #707070;
+    text-decoration: none;
+    border: 1px #707070 solid;
+  }
+
+  &:before {
+    content: '+'
+  }
+}
+
+.code-alert {
+  background: #F00;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+  margin: 10px 0;
+  display: none;
 }
