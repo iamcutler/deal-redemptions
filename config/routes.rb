@@ -7,6 +7,8 @@ DealRedemptions::Engine.routes.draw do
     post ':company', to: 'redeem#create'
   end
 
+  get 'thankyou', to: 'redeem#thankyou', as: :thank_you
+
   get 'validate/code/:company/:code', to: 'redeem#validate_code', as: :validate_redeem_code
 
   # Admin

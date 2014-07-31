@@ -2,15 +2,16 @@ require_dependency "deal_redemptions/application_controller"
 
 module DealRedemptions
   class RedeemController < ApplicationController
+    before_action :find_company, except: [:validate_code, :thankyou]
+
     def new
       @company = Company.find_by_slug(params[:company])
 
-      unless @company
-        redirect_to root_path
       end
     end
 
-    def create
+    # Thank you page after successful redemption
+    def thankyou
     end
 
     # Validate valid redemption codes
@@ -20,6 +21,16 @@ module DealRedemptions
         @redeem = redeem_code.validate_code(params)
       else
         @redeem = false
+      end
+    end
+
+    private
+
+    def find_company
+      @company = Company.find_by_slug(params[:company])
+
+      unless @company
+        redirect_to root_path
       end
     end
   end
