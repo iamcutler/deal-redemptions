@@ -5,8 +5,25 @@ module DealRedemptions
     before_action :find_company, except: [:validate_code, :thankyou]
 
     def new
-      @company = Company.find_by_slug(params[:company])
+      @transaction = DealRedemptions::RedeemTransaction.new
+      @redemption = @transaction.build_redemption
+    end
 
+    def create
+      redeem = DealRedemptions::Redemptions::Redeem.new(@company)
+
+      begin
+        ActiveRecord::Base.transaction do
+          # save transaction for redemption
+          @transaction = DealRedemptions::RedeemTransaction.create!(transaction_params)
+          # Save redemption information
+          @redemption = @transaction.build_redemption
+          @redemption.save
+        end
+
+        redirect_to thank_you_path
+      rescue
+        render :new, notice: 'Something went wrong. Please try again.'
       end
     end
 
@@ -32,6 +49,10 @@ module DealRedemptions
       unless @company
         redirect_to root_path
       end
+    end
+
+    def transaction_params
+      params.require(:redeem_transaction).permit(:company, :company_id, redemption_attributes: [:first_name, :last_name, :email_address, :phone, :address1, :address2, :city, :state, :zip_code, :country, :comments, :mailing_list, { redeem_code_attributes: [:code] }])
     end
   end
 end
