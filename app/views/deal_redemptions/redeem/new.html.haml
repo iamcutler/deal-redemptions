@@ -107,7 +107,7 @@
 
       .col-md-6
         = f.button 'Submit', class: 'btn btn-lg btn-primary', style: 'float: right;'
-        = f.hidden_field :company_id, @company.id
+        = hidden_field_tag :company_id, @company.id
 
 .app-credit
   = render '/deal_redemptions/shared_partials/powered'
