@@ -11,7 +11,7 @@ module DealRedemptions
       user = DealRedemptions::User.authenticate(params[:email], params[:password])
       if user
         session[:admin_user_id] = user.id
-        redirect_to admin_dashboard_path
+        redirect_to admin_redemptions_path
       else
         flash[:notice] = 'Invalid email or password'
         render :new
