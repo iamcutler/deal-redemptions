@@ -12,7 +12,7 @@ module DealRedemptions
 
     # Validate redemption code as an active voucher
     def validate_code(params)
-      if self.company.slug == params[:company] && self.code == params[:code] && self.active?
+      if self.company.slug == params[:company] && self.active?
         true
       else
         false
