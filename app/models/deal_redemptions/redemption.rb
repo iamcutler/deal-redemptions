@@ -1,5 +1,6 @@
 module DealRedemptions
   class Redemption < ActiveRecord::Base
+    belongs_to :company
     has_many :redeem_code
 
     attr_accessor :mailing_list
