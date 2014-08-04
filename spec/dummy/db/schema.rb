@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140718200319) do
+ActiveRecord::Schema.define(version: 20140802010843) do
 
   create_table "deal_redemptions_companies", force: true do |t|
     t.string   "name",                    null: false
@@ -61,22 +61,22 @@ ActiveRecord::Schema.define(version: 20140718200319) do
   add_index "deal_redemptions_redeem_transactions", ["company_id"], name: "index_deal_redemptions_redeem_transactions_on_company_id"
 
   create_table "deal_redemptions_redemptions", force: true do |t|
-    t.integer  "transaction_id"
-    t.string   "first_name",                     null: false
-    t.string   "last_name",                      null: false
-    t.string   "email_address",                  null: false
+    t.integer  "company_id"
+    t.string   "first_name",                    null: false
+    t.string   "last_name",                     null: false
+    t.string   "email_address",                 null: false
     t.string   "phone"
-    t.string   "address1",                       null: false
+    t.string   "address1",                      null: false
     t.string   "address2"
-    t.string   "state",                          null: false
-    t.string   "zip_code",                       null: false
-    t.string   "country",        default: "USA", null: false
+    t.string   "state",                         null: false
+    t.string   "zip_code",                      null: false
+    t.string   "country",       default: "USA", null: false
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "deal_redemptions_redemptions", ["transaction_id"], name: "index_deal_redemptions_redemptions_on_transaction_id"
+  add_index "deal_redemptions_redemptions", ["company_id"], name: "index_deal_redemptions_redemptions_on_company_id"
 
   create_table "deal_redemptions_tests", force: true do |t|
     t.datetime "created_at"
