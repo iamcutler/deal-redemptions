@@ -1,21 +1,20 @@
 .page-header
   = image_tag DealRedemptions.config.logo
 
-- if notice
+- if flash[:notice]
   .alert.alert-danger
     %ul
-    - flash.each do |key, msg|
       %li
-        = msg
+        = flash[:notice]
 
--# if @transaction.errors.any?
+- if @redemption.errors.any?
   .alert.alert-danger
     %ul
-      = @transaction.errors.full_messages.each do |msg|
+      - @redemption.errors.full_messages.each do |msg|
         %li
           = msg
 
-= form_for @transaction, url: :redemption, html: { name: 'redemptionForm' } do |f|
+= form_for @redemption, url: :redemption, html: { name: 'redemptionForm' } do |f|
   .row
     .col-md-12
       %h2 Redeem your voucher(s):
@@ -30,84 +29,82 @@
       .clearfix
       %hr
 
-  = f.fields_for :redemption do |r|
-    .row#redemption_codes
-      .code-alert
-        Please enter a valid redemption code
+  .row#redemption_codes
+    .code-alert
+      Please enter a valid redemption code
 
-      = r.fields_for :redeem_code do |c|
-        .col-md-6
-          .form-group
-            = c.label :code, 'Voucher Code 1'
-            = c.text_field :code, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = label_tag 'redeem_codes[]', 'Voucher Code 1'
+        = text_field_tag 'redeem_codes[]', '', class: 'form-control', required: 'required'
 
-    .row
-      .col-md-12
-        %h4 Shipping information:
-        %hr
+  .row
+    .col-md-12
+      %h4 Shipping information:
+      %hr
 
-      .col-md-6
-        .form-group
-          = r.label :first_name, 'First Name <span class="required">*</span>'.html_safe
-          = r.text_field :first_name, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :first_name, 'First Name <span class="required">*</span>'.html_safe
+        = f.text_field :first_name, class: 'form-control', required: 'required'
 
-      .col-md-6
-        .form-group
-          = r.label :last_name, 'Last Name <span class="required">*</span>'.html_safe
-          = r.text_field :last_name, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :last_name, 'Last Name <span class="required">*</span>'.html_safe
+        = f.text_field :last_name, class: 'form-control', required: 'required'
 
-      .col-md-6
-        .form-group
-          = r.label :email_address, 'Email Address <span class="required">*</span>'.html_safe
-          = r.email_field :email_address, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :email_address, 'Email Address <span class="required">*</span>'.html_safe
+        = f.email_field :email_address, class: 'form-control', required: 'required'
 
-      .col-md-6
-        .form-group
-          = r.label :phone
-          = r.text_field :phone, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :phone
+        = f.text_field :phone, class: 'form-control'
 
-      .col-md-6
-        .form-group
-          = r.label :address1, 'Address 1 <span class="required">*</span>'.html_safe
-          = r.text_field :address1, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :address1, 'Address 1 <span class="required">*</span>'.html_safe
+        = f.text_field :address1, class: 'form-control', required: 'required'
 
-      .col-md-6
-        .form-group
-          = r.label :address2, 'Apt, Unit, Suite, etc.'
-          = r.text_field :address2, class: 'form-control'
+    .col-md-6
+      .form-group
+        = f.label :address2, 'Apt, Unit, Suite, etc.'
+        = f.text_field :address2, class: 'form-control'
 
-      .col-md-6
-        .form-group
-          = r.label :city, 'City <span class="required">*</span>'.html_safe
-          = r.text_field :city, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :city, 'City <span class="required">*</span>'.html_safe
+        = f.text_field :city, class: 'form-control', required: 'required'
 
-      .col-md-6
-        .form-group
-          = r.label :state, 'State <span class="required">*</span>'.html_safe
-          = r.text_field :state, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :state, 'State <span class="required">*</span>'.html_safe
+        = f.text_field :state, class: 'form-control', required: 'required'
 
-      .col-md-6
-        .form-group
-          = r.label :zip_code, 'Zip Code <span class="required">*</span>'.html_safe
-          = r.text_field :zip_code, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :zip_code, 'Zip Code <span class="required">*</span>'.html_safe
+        = f.text_field :zip_code, class: 'form-control', required: 'required'
 
-      .col-md-6
-        .form-group
-          = r.label :country, 'Country <span class="required">*</span>'.html_safe
-          = r.text_field :country, class: 'form-control', required: 'required'
+    .col-md-6
+      .form-group
+        = f.label :country, 'Country <span class="required">*</span>'.html_safe
+        = f.text_field :country, class: 'form-control', required: 'required'
 
-      .col-md-12
-        .form-group
-          = r.label :comments
-          = r.text_area :comments, rows: '6', class: 'form-control'
+    .col-md-12
+      .form-group
+        = f.label :comments
+        = f.text_area :comments, rows: '6', class: 'form-control'
 
-      .col-md-6
-        =# r.check_box 'mailing_list', {}, 1, 0
-        Keep me informed on all the latest news and upcoming events.
+    .col-md-6
+      = check_box_tag 'redemption[mailing_list]', 1
+      Keep me informed on all the latest news and upcoming events.
 
-      .col-md-6
-        = f.button 'Submit', class: 'btn btn-lg btn-primary', style: 'float: right;'
-        = hidden_field_tag :company_id, @company.id
+    .col-md-6
+      = f.button 'Submit', class: 'btn btn-lg btn-primary', style: 'float: right;'
+      = f.hidden_field :company_id, value: @company.id
 
 .app-credit
   = render '/deal_redemptions/shared_partials/powered'

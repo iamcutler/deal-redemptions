@@ -22,9 +22,9 @@ $(document).ready () ->
     false
 
   # On change event, validate current code fields
-  $(document).on 'change', "input[name^='redemption[redeem_code]']", () ->
+  $(document).on 'change', "input[name^='redeem_codes[]']", () ->
     self = @
-    redemption.search_for_duplicate_entries("input[name^='redemption[redeem_code]']", (response) ->
+    redemption.search_for_duplicate_entries("input[name^='redeem_codes[]']", (response) ->
       if response
         redemption.display_code_message("Please provide unique redemption codes.")
       else

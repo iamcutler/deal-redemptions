@@ -1,6 +1,6 @@
 module DealRedemptions
   class Company < ActiveRecord::Base
-    has_one :redeem_transaction
+    has_many :redemption
     has_many :redeem_code
 
     before_validation :format_url_protocol

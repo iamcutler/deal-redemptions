@@ -2,13 +2,13 @@ root = exports ? this
 
 class root.Redemption
   constructor: (@max) ->
-    @number = 1
-    @max = @max || 10
+    @number = 0
+    @max = @max || 9
 
   add_redeem_code: () ->
     if @number < @max
       @number++
-      $('.row#redemption_codes').append "<div class=\"col-md-6\"><div class=\"form-group\"><label for=\"redemption_redeem_code_code_#{@number}\">Voucher Code #{@number}</label><input class=\"form-control\" id=\"redemption_redeem_code_code_#{@number}\" name=\"redemption[redeem_code][][code]\" type=\"text\"></div></div>"
+      $('.row#redemption_codes').append "<div class=\"col-md-6\"><div class=\"form-group\"><label for=\"redeem_codes[]\">Voucher Code #{@number + 1}</label><input class=\"form-control\" id=\"redeem_codes_#{@number}_code\" name=\"redeem_codes[]\" type=\"text\"></div></div>"
 
   # Search for duplicate codes in the input form
   get_inputs_array: (inputs) ->
