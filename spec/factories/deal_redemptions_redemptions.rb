@@ -9,6 +9,7 @@ module DealRedemptions
       phone "6615557897"
       address1 "1600 N Street Rd"
       address2 ""
+      city "Valencia"
       state "CA"
       zip_code "91351"
       country "United States"
