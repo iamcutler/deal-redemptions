@@ -18,5 +18,9 @@ module DealRedemptions
         false
       end
     end
+
+    def self.find_all_by_code(codes=[])
+      where(code: codes)
+    end
   end
 end
