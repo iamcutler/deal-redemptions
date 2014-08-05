@@ -9,7 +9,7 @@ module DealRedemptions
     before_action :set_company, only: [:show, :edit, :update, :destroy]
 
     def index
-      @companies = DealRedemptions::Company.all_by_name
+      @companies = DealRedemptions::Company.all_by_name.page(params[:page])
     end
 
     def new
