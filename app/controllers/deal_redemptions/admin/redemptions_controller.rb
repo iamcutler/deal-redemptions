@@ -8,13 +8,12 @@ module DealRedemptions
 
     # GET /admin/redemptions
     def index
-      @transactions = DealRedemptions::RedeemTransaction.all.includes(:redemption, :company)
+      @redemptions = DealRedemptions::Redemption.all.includes(:company)
     end
 
     # GET /admin/redemptions/1
     def show
-      @transaction = DealRedemptions::RedeemTransaction.includes(:redeem_code).find(params[:id])
-      @redemption = @transaction.redemption[0]
+      @redemption = DealRedemptions::Redemption.includes(:redeem_code).find(params[:id])
     end
 
     private

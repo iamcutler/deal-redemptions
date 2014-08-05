@@ -21,20 +21,20 @@
       %td
         Redeemed Date:
   %tbody
-  - @transactions.each do |c|
+  - @redemptions.each do |redemption|
     %tr
       %td
-        = link_to "##{c.id}", admin_redemption_path(c.id)
+        = link_to "##{redemption.id}", admin_redemption_path(redemption.id)
       %td
-        = link_to "#{c.redemption[0].first_name} #{c.redemption[0].last_name}", admin_redemption_path(c.id)
+        = link_to "#{redemption.first_name} #{redemption.last_name}", admin_redemption_path(redemption.id)
       %td
-        = c.redemption[0].email_address
+        = redemption.email_address
       %td
-        = c.company.name
+        = redemption.company.name
       %td
-        = c.redemption.count
+        = redemption.redeem_code.count
       %td
-        = c.created_at
+        = redemption.created_at.strftime "%m-%d-%Y"
 
 %ul{class: 'pagination'}
   %li= link_to '&laquo;'.html_safe, '#'

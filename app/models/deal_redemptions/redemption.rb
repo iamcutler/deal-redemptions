@@ -3,7 +3,7 @@ module DealRedemptions
     belongs_to :company
     has_many :redeem_code
 
-    attr_accessor :mailing_list
+    attr_accessor :mailing_list, :city
 
     accepts_nested_attributes_for :redeem_code, update_only: true
 

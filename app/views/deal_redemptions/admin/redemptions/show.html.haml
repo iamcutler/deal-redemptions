@@ -1,5 +1,5 @@
-- page_title "Redemption ##{@transaction.id}"
-- admin_page_title "<i class=\"redemptions\"></i> #{link_to 'Redemptions', admin_redemptions_path} / ##{@transaction.id}".html_safe
+- page_title "Redemption ##{@redemption.id}"
+- admin_page_title "<i class=\"redemptions\"></i> #{link_to 'Redemptions', admin_redemptions_path} / ##{@redemption.id}".html_safe
 
 .row-fluid
   .col-md-8.description-wrapper
@@ -48,7 +48,7 @@
 
       .row-fluid{style: 'padding: 10px 0;'}
         = label_tag 'Name:'
-        = link_to @transaction.company.name, edit_admin_company_path(@transaction.company.id)
+        = link_to @redemption.company.name, edit_admin_company_path(@redemption.company.id)
 
     .col-md-12.description-wrapper
       .row
@@ -56,7 +56,7 @@
           Codes Redeemed:
 
       .row.redemption-description
-        - @transaction.redeem_code.each do |c|
+        - @redemption.redeem_code.each do |c|
           - if c.redeemed?
             .col-md-12
               = label_tag 'Code:'
