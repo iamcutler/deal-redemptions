@@ -254,6 +254,12 @@ i {
       content: '\e605'
     }
   }
+
+  &.question {
+    &:before {
+      content: '\e606'
+    }
+  }
 }
 
 // Main content
@@ -278,6 +284,11 @@ label {
   &:hover {
     text-decoration: underline;
   }
+}
+
+// Bootstrap tooltip
+.tooltip {
+  z-index: 2000;
 }
 
 // ===============================================================
