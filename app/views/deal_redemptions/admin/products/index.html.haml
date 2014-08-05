@@ -20,9 +20,7 @@
         %td
           = link_to c.name, edit_admin_product_path(c.id)
 
-  %ul{class: 'pagination'}
-    %li= link_to '&laquo;'.html_safe, '#'
-    %li= link_to '&raquo;'.html_safe, '#'
+  = paginate @products
 
 - else
   .no-current-products

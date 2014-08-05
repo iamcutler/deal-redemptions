@@ -8,7 +8,7 @@ module DealRedemptions
 
     # GET /admin/products
     def index
-      @products = Product.all
+      @products = Product.page(params[:page])
     end
 
     # GET /admin/products/new
