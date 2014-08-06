@@ -10,6 +10,10 @@ module DealRedemptions
     scope :active_by_name, -> { where(active: 1) }
     scope :all_by_name, -> { all.order(:name) }
 
+    def self.find_active
+      where(active: 1)
+    end
+
     private
 
     def format_url_protocol
