@@ -8,7 +8,7 @@ module DealRedemptions
 
     # GET /admin/redemptions
     def index
-      @redemptions = DealRedemptions::Redemption.page(params[:page]).includes(:company)
+      @redemptions = DealRedemptions::Redemption.page(params[:page]).order_desc.includes(:company)
     end
 
     # GET /admin/redemptions/1
