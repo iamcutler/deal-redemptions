@@ -22,5 +22,9 @@ module DealRedemptions
     def self.find_all_by_code(codes=[])
       where(code: codes)
     end
+
+    def self.by_company(company)
+      where(company_id: company)
+    end
   end
 end
