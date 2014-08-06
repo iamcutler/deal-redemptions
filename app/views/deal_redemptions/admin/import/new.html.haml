@@ -6,6 +6,49 @@
     %h3 Upload Redemption Codes
     Upload redemption codes via CSV format
     %hr
+    %span{style: "font-family: 'ProximaNovaRegular'"} Format:
+    %br
+    Upload CSV file with each code in a new row. No headers are needed.
+    %i{class: 'question csv-tip', data: {toggle: 'tooltip', title: 'Testing tip', placement: 'top'}}
 
   .col-md-8
+    = form_tag '', multipart: true do
+      .form-group
+        = label_tag :company
+        = select_tag :company, options_from_collection_for_select(@companies, 'id', 'name'), class: 'form-control'
 
+      .form-group
+        = label_tag :product
+        = select_tag :product, options_from_collection_for_select(@products, 'id', 'name'), class: 'form-control'
+
+      .form-group
+        = label_tag :file, 'CSV File'
+        = file_field_tag :file
+
+      .form-group
+        = submit_tag 'Submit', class: 'btn btn-primary pull-right'
+
+%hr
+
+.row
+  .col-md-4
+    %h3 Export
+    Export existing redemptions
+
+    %hr
+
+  .col-md-8
+    = form_tag '' do
+      .row-fluid
+        .col-md-6
+          .form-group
+            %label Start Date:
+            %input{class: 'form-control', id: 'exportStartDate', value: Time.now.strftime('%m-%d-%Y'), readonly: 'readonly' }
+
+        .col-md-6
+          .form-group
+            %label End Date:
+            %input{class: 'form-control', id: 'exportEndDate', value: Time.now.strftime('%m-%d-%Y'), readonly: 'readonly' }
+
+        .form-group
+          = submit_tag 'Export', class: 'btn btn-primary pull-right'

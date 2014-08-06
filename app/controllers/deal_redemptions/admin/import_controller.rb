@@ -6,7 +6,9 @@ module DealRedemptions
 
     before_action :admin_authorize
 
-    def index
+    def new
+      @companies = DealRedemptions::Company.find_active
+      @products = DealRedemptions::Product.all
     end
   end
 end
