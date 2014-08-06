@@ -14,6 +14,16 @@
 <%= render '/deal_redemptions/admin/shared/sidebar' %>
 
 <section class="content-wrapper">
+  <% if flash.any? %>
+    <div class="alert alert-<%= flash[:notice] ? 'success' : 'danger' %>">
+      <ul>
+        <% flash.each do |name, msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <%= yield %>
 </section>
 
