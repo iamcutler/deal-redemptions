@@ -25,7 +25,23 @@ module DealRedemptions
       end
     end
 
-    def export
+    def export_redemptions
+      @codes = DealRedemptions::Redemption.where(created_at: Date.parse(params[:exportStartDate]).strftime("%Y-%m-%d")..Date.parse(params[:exportEndDate]).strftime("%Y-%m-%d")).includes(:redeem_code)
+
+      respond_to do |format|
+        format.csv do
+          if @codes.count > 0
+            import = DealRedemptions::Admin::Importer.new
+            @redemptions = import.export_redemptions_csv(@codes)
+
+            response.headers['Content-Type'] = 'text/csv'
+            response.headers['Content-Disposition'] = 'attachment; filename=redemptions.csv'
+            render csv: @redemptions
+          else
+            redirect_to admin_import_path, alert: 'No redemptions found to export.'
+          end
+        end
+      end
     end
   end
 end
