@@ -12,7 +12,7 @@ $(document).ready ->
   now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0)
 
   checkin = $('input#exportStartDate').datepicker({
-    format: 'mm-dd-yyyy'
+    format: 'yyyy-mm-dd'
     onRender: (date) ->
       return date.valueOf() < now.valueOf() ? 'disabled' : ''
 
@@ -28,7 +28,7 @@ $(document).ready ->
   ).data('datepicker')
 
   checkout = $('#exportEndDate').datepicker({
-    format: 'mm-dd-yyyy'
+    format: 'yyyy-mm-dd'
     onRender: (date) ->
       return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : ''
 

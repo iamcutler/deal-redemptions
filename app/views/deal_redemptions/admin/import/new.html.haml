@@ -38,17 +38,17 @@
     %hr
 
   .col-md-8
-    = form_tag '' do
+    = form_tag admin_export_redemptions_path(format: :csv), method: 'get' do
       .row-fluid
         .col-md-6
           .form-group
             %label Start Date:
-            %input{class: 'form-control', id: 'exportStartDate', value: Time.now.strftime('%m-%d-%Y'), readonly: 'readonly' }
+            %input{class: 'form-control', name: 'exportStartDate', id: 'exportStartDate', value: Time.now.strftime('%Y-%m-%d'), readonly: 'readonly' }
 
         .col-md-6
           .form-group
             %label End Date:
-            %input{class: 'form-control', id: 'exportEndDate', value: Time.now.strftime('%m-%d-%Y'), readonly: 'readonly' }
+            %input{class: 'form-control', name: 'exportEndDate', id: 'exportEndDate', value: Time.now.strftime('%Y-%m-%d'), readonly: 'readonly' }
 
         .form-group
-          = submit_tag 'Export', class: 'btn btn-primary pull-right'
+          = submit_tag 'Export', name: nil, class: 'btn btn-primary pull-right'
