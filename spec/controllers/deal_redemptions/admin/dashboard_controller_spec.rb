@@ -11,10 +11,6 @@ module DealRedemptions
     end
 
     describe "GET 'index'" do
-      it "returns http success" do
-        get :index, nil, valid_session
-        expect(response).to be_success
-      end
     end
 
   end
