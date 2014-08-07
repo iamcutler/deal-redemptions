@@ -13,6 +13,11 @@ module DealRedemptions
       g.helper false
     end
 
+    initializer :assets do |config|
+      Rails.application.config.assets.precompile += [ 'deal_redemptions/admin.css', 'deal_redemptions/admin.js' ]
+      Rails.application.config.assets.paths << root.join("app", "assets", "images", "fonts")
+    end
+
     initializer :append_migrations do |app|
       unless app.root.to_s.match root.to_s
         config.paths["db/migrate"].expanded.each do |expanded_path|

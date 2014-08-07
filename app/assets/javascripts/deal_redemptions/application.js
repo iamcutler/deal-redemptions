@@ -13,4 +13,5 @@
 //= require jquery
 //= require bootstrap
 //= require bootstrap-datepicker
+//= stub deal_redemptions/admin
 //= require_tree .
