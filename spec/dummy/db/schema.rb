@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140802010843) do
+ActiveRecord::Schema.define(version: 20140807055955) do
 
   create_table "deal_redemptions_companies", force: true do |t|
     t.string   "name",                    null: false
@@ -52,14 +52,6 @@ ActiveRecord::Schema.define(version: 20140802010843) do
   add_index "deal_redemptions_redeem_codes", ["product_id"], name: "index_deal_redemptions_redeem_codes_on_product_id"
   add_index "deal_redemptions_redeem_codes", ["redemption_id"], name: "index_deal_redemptions_redeem_codes_on_redemption_id"
 
-  create_table "deal_redemptions_redeem_transactions", force: true do |t|
-    t.integer  "company_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "deal_redemptions_redeem_transactions", ["company_id"], name: "index_deal_redemptions_redeem_transactions_on_company_id"
-
   create_table "deal_redemptions_redemptions", force: true do |t|
     t.integer  "company_id"
     t.string   "first_name",                    null: false
@@ -68,6 +60,7 @@ ActiveRecord::Schema.define(version: 20140802010843) do
     t.string   "phone"
     t.string   "address1",                      null: false
     t.string   "address2"
+    t.string   "city",                          null: false
     t.string   "state",                         null: false
     t.string   "zip_code",                      null: false
     t.string   "country",       default: "USA", null: false
@@ -78,18 +71,13 @@ ActiveRecord::Schema.define(version: 20140802010843) do
 
   add_index "deal_redemptions_redemptions", ["company_id"], name: "index_deal_redemptions_redemptions_on_company_id"
 
-  create_table "deal_redemptions_tests", force: true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "deal_redemptions_users", force: true do |t|
     t.string   "first_name",                                    null: false
     t.string   "last_name",                                     null: false
     t.string   "email",                                         null: false
     t.string   "password_hash",                                 null: false
     t.string   "password_salt",                                 null: false
-    t.datetime "last_login",    default: '2014-07-18 22:44:18'
+    t.datetime "last_login",    default: '2014-08-07 06:01:21'
     t.datetime "created_at"
     t.datetime "updated_at"
   end
