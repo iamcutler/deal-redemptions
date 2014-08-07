@@ -27,3 +27,7 @@ en:
       previous: "&lsaquo;"
       next: "&rsaquo;"
       truncate: "&hellip;"
+
+  redemption_mailer:
+    confirmation:
+      subject: "Redemption Confirmation"
