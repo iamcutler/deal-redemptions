@@ -17,7 +17,12 @@ DealRedemptions::Engine.routes.draw do
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'
     get 'settings', to: 'settings#index', as: 'settings'
-    get 'transfer', to: 'import#index', as: 'import'
+
+    scope :transfer do
+      get '', to: 'import#new', as: 'import'
+      post '', to: 'import#create'
+      get 'export_redemptions', to: 'import#export_redemptions', as: :export_redemptions
+    end
 
     resources :user, except: [:new]
     resources :companies
