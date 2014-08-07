@@ -41,6 +41,9 @@ module DealRedemptions
               end
             end
 
+            # Send confirmation email
+            DealRedemptions::RedemptionMailer.confirmation(@redemption).deliver
+
             redirect_to thank_you_path and return
           rescue
             flash[:notice] = 'Something went wrong. Please try again.'
