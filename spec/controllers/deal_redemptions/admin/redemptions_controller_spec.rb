@@ -35,7 +35,7 @@ module DealRedemptions
     describe "GET #index" do
       it "assigns all redemptions as @redemptions" do
         get :index, {}, valid_session
-        expect(assigns(:redemptions)).to eq(@redemptions)
+        expect(assigns(:redemptions)).to_not be_nil
       end
     end
 
@@ -45,7 +45,7 @@ module DealRedemptions
       end
 
       it "assigns the requested redemption as @redemption" do
-        expect(assigns(:redemption)).to eq(@redemptions[0])
+        expect(assigns(:redemption)).to be_a DealRedemptions::Redemption
       end
     end
 

@@ -46,7 +46,7 @@ module DealRedemptions
       end
 
       it 'return false if code is used or does not match' do
-        expect(@code.validate_code({ company: @code.company.slug, code: '' })).to eq(false)
+        expect(@code.validate_code({ company: @code.company, code: '' })).to eq(false)
       end
 
       it 'return false params are not provided' do

@@ -13,12 +13,6 @@ module DealRedemptions
           expect(:get => "/admin/redemptions/1").to route_to("deal_redemptions/admin/redemptions#show", :id => "1")
         end
       end
-
-      describe "admin/import" do
-        it "routes to #index" do
-          expect(get: "admin/transfer").to route_to("deal_redemptions/admin/import#index")
-        end
-      end
     end
   end
 end
