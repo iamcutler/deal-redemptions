@@ -31,3 +31,7 @@ en:
   redemption_mailer:
     confirmation:
       subject: "Redemption Confirmation"
+
+  admin_user_mailer:
+    new_confirmation:
+      subject: "New User Confirmation"

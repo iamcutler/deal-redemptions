@@ -4,6 +4,7 @@ module DealRedemptions
   class User < ActiveRecord::Base
     before_save :encrypt_password
     before_save :log_last_login
+    after_save :send_confirmation_email
 
     attr_accessor :password
 
@@ -30,6 +31,10 @@ module DealRedemptions
 
     def log_last_login
       self.last_login = Time.now
+    end
+
+    def send_confirmation_email
+      DealRedemptions::AdminUserMailer.new_confirmation(self).deliver
     end
   end
 end
