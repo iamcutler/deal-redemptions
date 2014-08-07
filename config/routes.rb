@@ -17,7 +17,11 @@ DealRedemptions::Engine.routes.draw do
     get '/', to: 'redemptions#index', as: 'home'
     get 'login', to: 'sessions#new', as: 'login'
     get 'logout', to: 'sessions#destroy', as: 'logout'
-    get 'settings', to: 'settings#index', as: 'settings'
+
+    scope :settings do
+      get '', to: 'settings#index', as: 'settings'
+      put 'password', to: 'settings#change_admin_password'
+    end
 
     scope :transfer do
       get '', to: 'import#new', as: 'import'
@@ -25,7 +29,7 @@ DealRedemptions::Engine.routes.draw do
       get 'export_redemptions', to: 'import#export_redemptions', as: :export_redemptions
     end
 
-    resources :user, except: [:new]
+    resources :user
     resources :companies
     resources :redemptions
     resources :products, except: [:show]

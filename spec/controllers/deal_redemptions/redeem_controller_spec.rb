@@ -4,7 +4,7 @@ module DealRedemptions
   RSpec.describe RedeemController, :type => :controller do
     routes { DealRedemptions::Engine.routes }
 
-    context 'GET #new' do
+    describe 'GET #new' do
       before(:each) do
         @company = FactoryGirl.create(:company)
       end

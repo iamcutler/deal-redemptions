@@ -10,7 +10,7 @@ module DealRedemptions
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
     validates :first_name, :last_name, :email, presence: true
     validates :email, uniqueness: true, format: { with: VALID_EMAIL_REGEX }
-    validates :password, length: { minimum: 6 }, presence: true, confirmation: true, on: :create
+    validates :password, length: { minimum: 6 }, presence: true, confirmation: true
 
     def self.authenticate(email, password)
       user = find_by_email(email)

@@ -7,5 +7,13 @@ module DealRedemptions
       email "johndoe@gmail.com"
       password "test123"
     end
+
+    factory :user_2, class: User do
+      sequence(:id) { |n| "#{n}" }
+      first_name "John"
+      last_name "Doe"
+      sequence(:email) { |n| "testemail#{n}@gmail.com" }
+      password "test123"
+    end
   end
 end

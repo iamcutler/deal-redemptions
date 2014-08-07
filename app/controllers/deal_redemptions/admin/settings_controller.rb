@@ -8,6 +8,7 @@ module DealRedemptions
 
     def index
       @users = DealRedemptions::User.all.order(:first_name)
+      @new_user = DealRedemptions::User.new
     end
   end
 end

@@ -19,7 +19,10 @@ module DealRedemptions
       it 'assigns @users to fetch users' do
         expect(assigns(:users)).to match_array @user
       end
-    end
 
+      it 'assigns @new_user to new user instance' do
+        expect(assigns(:new_user)).to be_a(DealRedemptions::User)
+      end
+    end
   end
 end
