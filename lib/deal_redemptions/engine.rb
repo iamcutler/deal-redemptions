@@ -36,7 +36,7 @@ module DealRedemptions
     # Default vars if not overwritten
     @@config.site_name = 'Deal Site Redemptions'
     @@config.welcome_notice = 'Please select a deal site to redeem your voucher:'
-    @@config.logo = '/assets/logo.png'
+    @@config.logo = '/assets/deal-redemptions-logo.png'
     # Admin panel default enabled
     @@config.admin_interface = true
     @@config.disable_powered = false
