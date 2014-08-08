@@ -18,6 +18,8 @@
   .row
     .col-md-12
       %h2 Redeem your voucher(s):
+      - unless @company.description.nil?
+        %p= simple_format @company.description
 
       .clearfix
       %hr
