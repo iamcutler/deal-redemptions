@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
   #Admin
   s.add_dependency "kaminari"
   s.add_dependency "bcrypt", "~> 3.1.7"
-  s.add_dependency "angularjs-rails", "~>1.2.20"
   #testing
   s.add_development_dependency 'sqlite3'
   s.add_development_dependency 'rspec-rails'
