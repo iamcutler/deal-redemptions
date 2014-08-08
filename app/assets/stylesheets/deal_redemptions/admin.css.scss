@@ -363,6 +363,42 @@ table.table {
   }
 }
 
+// Padding
+.padding-right-5 {
+  padding-right: 5px;
+}
+
+.padding-right-10 {
+  padding-right: 10px;
+}
+
+.padding-right-15 {
+  padding-right: 15px;
+}
+
+.padding-left-5 {
+  padding-left: 5px;
+}
+
+.padding-left-10 {
+  padding-left: 10px;
+}
+
+.padding-left-15 {
+  padding-left: 15px;
+}
+
+// ===============================================================
+// 2.2 Mobile Components
+// ===============================================================
+section#mobile-navigation {
+  display: none;
+
+  select {
+    width: 100%;
+  }
+}
+
 // ===============================================================
 // 3.0 Products
 // ===============================================================
@@ -382,3 +418,72 @@ table.table {
   }
 }
 
+// ===============================================================
+// 4.0 Redemptions
+// ===============================================================
+form {
+  &.search-redemptions {
+    width: 100%;
+  }
+}
+
+// ===============================================================
+// 5.0 Responsive Design
+// ===============================================================
+// iPhone
+@media (max-width: 480px) {
+  table {
+    &#redemptions {
+      tr {
+        td {
+          &:nth-child(1), &:nth-child(4), &:nth-child(5) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 840px) {
+  .topbar {
+    padding-left: 20px;
+  }
+
+  section {
+    &.sidebar {
+      display: none;
+    }
+
+    &.content-wrapper {
+      padding-left: 20px;
+    }
+
+    &#mobile-navigation {
+      display: block;
+    }
+  }
+}
+
+@media (max-width: 990px) {
+  form {
+    &.search-redemptions {
+      button[type=submit] {
+        width: 100%;
+      }
+
+      .col-md-8 {
+        padding-right: 15px !important;
+      }
+
+      .col-md-4 {
+        padding-left: 15px !important;
+      }
+    }
+  }
+
+  // Redemptions
+  .redemption-right-col {
+    padding: 0;
+  }
+}

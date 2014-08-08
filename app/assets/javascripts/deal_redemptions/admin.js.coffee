@@ -27,14 +27,17 @@ class Validator
 
     if count == 0 then true else false
 
+class Navigation
+  mobile: () ->
+    $('section#mobile-navigation select').bind 'change', () ->
+      window.location.href = @.value
+
 
 $(document).ready ->
-  validate = new Validator
+  navigation = new Navigation
 
-  $('form#newUserForm').submit ->
-    if validate.form({form: 'form#newUserForm'})
-      alert 'VALID'
-    return false
+  # Responsive mobile navigation
+  navigation.mobile()
 
   $('i.csv-tip').tooltip({
     container: 'body'

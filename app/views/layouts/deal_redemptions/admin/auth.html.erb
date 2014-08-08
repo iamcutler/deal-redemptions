@@ -2,6 +2,7 @@
 <html>
 <head>
   <title><%= DealRedemptions.config.site_name %> | <%= yield(:title).blank? ? "Administration Panel" : yield(:title) %></title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
   <%= stylesheet_link_tag    "deal_redemptions/application", media: "all" %>
   <%= stylesheet_link_tag    "deal_redemptions/admin", media: "all" %>
   <%= javascript_include_tag "deal_redemptions/application" %>

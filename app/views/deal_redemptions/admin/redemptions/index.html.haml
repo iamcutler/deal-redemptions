@@ -3,7 +3,20 @@
 
 %hr
 
-%table{class: 'table default'}
+.row.clearfix
+  .col-md-4
+    = form_tag '', class: 'search-redemptions pull-right' do
+      .col-md-8.padding-right-5
+        .form-group
+          = search_field_tag '', '', class: 'form-control', placeholder: 'Search by name:'
+      .col-md-4.padding-left-5
+        .form-group
+          = button_tag 'Search', class: 'btn btn-primary'
+  .col-md-8
+
+%hr
+
+%table{id: 'redemptions', class: 'table default'}
   %thead
     %tr
       %td
@@ -14,8 +27,6 @@
         Email:
       %td
         Company:
-      %td
-        Redeem Count:
       %td
         Redeemed Date:
   %tbody
@@ -29,8 +40,6 @@
         = redemption.email_address
       %td
         = redemption.company.name
-      %td
-        = redemption.redeem_code.count
       %td
         = redemption.created_at.strftime "%m-%d-%Y"
 
