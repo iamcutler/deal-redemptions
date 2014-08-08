@@ -12,7 +12,7 @@ DealRedemptions::Engine.routes.draw do
   get 'validate/code/:company/:code', to: 'redeem#validate_code', as: :validate_redeem_code
 
   # Admin
-  namespace :admin do
+  namespace :admin, constraints: DealRedemptions::AdminInterfaceDomain.new do
     #get '/', to: 'dashboard#index', as: 'dashboard'
     get '/', to: 'redemptions#index', as: 'home'
     get 'login', to: 'sessions#new', as: 'login'
