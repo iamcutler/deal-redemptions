@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = DealRedemptions::VERSION
   s.authors     = ["Allan Cutler"]
   s.email       = ["iamcutler@icloud.com"]
-  s.homepage    = "http://github.com/iamcutler"
+  s.homepage    = "https://github.com/iamcutler/deal-redemptions"
   s.summary     = "Ruby on Rails Engine to redeem deal site promotions."
   s.description = "Ruby on Rails Engine to redeem deal site promotions."
   s.license     = "MIT"
