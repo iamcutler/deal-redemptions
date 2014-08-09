@@ -1,9 +1,9 @@
 DealRedemptions.configure do |config|
   # Set engine name
-  # config.site_name = "Smile Sciences Redemptions"
+  # config.site_name = "Deal Site Redemptions"
 
-  # Set Smile Sciences logo
-  # config.logo = '/assets/deal-redemptions-logo.png'
+  # Set custom logo
+  # config.logo = '/assets/logo.png'
 
   # Disable powered by credit
   # config.disable_powered = true
