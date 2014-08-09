@@ -30,12 +30,31 @@ module DealRedemptions
         FactoryGirl.create(:redemption_2),
         FactoryGirl.create(:redemption_3)
       ]
+
+      # Set protected and private methods as public for testing
+      DealRedemptions::Admin::RedemptionsController.send(:public, *DealRedemptions::Admin::RedemptionsController.protected_instance_methods)
+      DealRedemptions::Admin::RedemptionsController.send(:public, *DealRedemptions::Admin::RedemptionsController.private_instance_methods)
     end
 
     describe "GET #index" do
-      it "assigns all redemptions as @redemptions" do
-        get :index, {}, valid_session
-        expect(assigns(:redemptions)).to_not be_nil
+      context 'with no search parameter' do
+        before :each do
+          get :index, {}, valid_session
+        end
+
+        it "assigns all redemptions to @redemptions" do
+          expect(assigns(:redemptions)).to_not be_nil
+        end
+      end
+
+      context 'with search parameter' do
+        before :each do
+          get :index, { search: 'John Doe' }, valid_session
+        end
+
+        it "assigns searched redemptions to @redemptions" do
+          expect(assigns(:redemptions)).to_not be_nil
+        end
       end
     end
 
@@ -49,5 +68,14 @@ module DealRedemptions
       end
     end
 
+    describe 'building search query' do
+      before :each do
+        get :index, { search: 'John Doe' }, valid_session
+      end
+
+      it 'should return sql query as a string' do
+        expect(controller.send(:build_search_query)).to_not be_nil
+      end
+    end
   end
 end

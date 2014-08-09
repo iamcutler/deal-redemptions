@@ -427,6 +427,22 @@ form {
   }
 }
 
+.no-current-redemptions {
+  text-align: center;
+  font-size: 24px;
+  margin-top: 80px;
+
+  i {
+    &.redemptions {
+      &:before {
+        width: 100%;
+        font-size: 140px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+
 // ===============================================================
 // 5.0 Responsive Design
 // ===============================================================
