@@ -1,6 +1,6 @@
 ## Deal Redemptions
 
-Ruby on Rails engine to run redemptions for deal sites.
+Ruby on Rails 4 engine to run redemptions for deal sites.
 
 [![Gem Version](https://badge.fury.io/rb/deal_redemptions.svg)](http://badge.fury.io/rb/deal_redemptions)
 [![Build Status](https://travis-ci.org/iamcutler/deal-redemptions.svg?branch=master)](https://travis-ci.org/iamcutler/deal-redemptions)
