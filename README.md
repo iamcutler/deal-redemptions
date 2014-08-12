@@ -7,14 +7,14 @@ Ruby on Rails engine to run redemptions for deal sites.
 
 ## Installation
 ```gem
-install deal_redemptions
+gem install deal_redemptions
 ```
 
 ## Configuration
 To generate a configure file to overwrite default settings in your hosted app. Please run the following rake task. The config file will be created as an initializer and have the optional settings commented out.
 
 ```rake
-deal_redemptions:install:config
+rake deal_redemptions:install:config
 ```
 
 If you would like to disable the admin panel for any reason, it will be included as an optional setting in the initializer config file.
@@ -24,7 +24,7 @@ The design to the admin interface was inspired by the Shopify backend. Currently
 
 To generate an initial admin user, simple run
 ```rake
-deal_redemptions:install:admin
+rake deal_redemptions:install:admin
 ```
 
 ## Dependencies
