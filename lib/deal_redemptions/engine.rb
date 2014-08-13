@@ -40,6 +40,8 @@ module DealRedemptions
     # Admin panel default enabled
     @@config.admin_interface = true
     @@config.disable_powered = false
+    # Custom styling for redemption pages
+    @@config.stylesheet = nil
 
     yield @@config if block
 

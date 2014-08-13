@@ -10,4 +10,7 @@ DealRedemptions.configure do |config|
 
   # Disable admin interface if desire to using different gui like active admin
   # config.admin_interface = false
+
+  # Stylesheet for custom styling of redemption pages
+  # config.stylesheet = '/assets/stylesheet.css'
 end
