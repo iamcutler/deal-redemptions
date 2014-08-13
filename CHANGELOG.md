@@ -6,3 +6,4 @@
 
 ## 0.0.5
 * New config option to overwrite default styling in redemption pages
+* New config option to overwrite email address for outgoing notifications
