@@ -42,6 +42,8 @@ module DealRedemptions
     @@config.disable_powered = false
     # Custom styling for redemption pages
     @@config.stylesheet = nil
+    # Overwrite default email for notifications and redemptions
+    @@config.email_address = 'noreply@domain.com'
 
     yield @@config if block
 

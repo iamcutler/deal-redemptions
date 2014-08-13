@@ -13,4 +13,7 @@ DealRedemptions.configure do |config|
 
   # Stylesheet for custom styling of redemption pages
   # config.stylesheet = '/assets/stylesheet.css'
+
+  # Email used for outgoing notifications
+  # config.email_address = 'noreply@domain.com'
 end

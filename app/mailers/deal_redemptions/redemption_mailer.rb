@@ -1,6 +1,6 @@
 module DealRedemptions
   class RedemptionMailer < ActionMailer::Base
-    default from: "noreply@dealsiteredemptions.com"
+    default from: "#{DealRedemptions.config.email_address}"
 
     def confirmation(redemption)
       @redemption = redemption
