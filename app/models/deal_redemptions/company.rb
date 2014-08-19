@@ -7,7 +7,7 @@ module DealRedemptions
 
     validates :name, :slug, presence: true, uniqueness: true
 
-    scope :active_by_name, -> { where(active: 1) }
+    scope :active_by_name, -> { where(active: 1).order(:name) }
     scope :all_by_name, -> { all.order(:name) }
 
     def self.find_active
