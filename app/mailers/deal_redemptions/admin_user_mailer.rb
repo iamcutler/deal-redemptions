@@ -1,6 +1,6 @@
 module DealRedemptions
   class AdminUserMailer < ActionMailer::Base
-    default from: "noreply@dealsiteredemptions.com"
+    default from: "#{DealRedemptions.config.email_address}"
 
     def new_confirmation(user)
       @user = user

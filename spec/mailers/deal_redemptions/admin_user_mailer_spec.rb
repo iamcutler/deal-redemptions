@@ -16,7 +16,7 @@ module DealRedemptions
         end
 
         it 'sender' do
-          expect(mail.from).to eq(["noreply@dealsiteredemptions.com"])
+          expect(mail.from).to eq(["noreply@domain.com"])
         end
       end
     end
