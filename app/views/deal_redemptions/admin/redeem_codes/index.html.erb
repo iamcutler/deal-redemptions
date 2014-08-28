@@ -1,0 +1,23 @@
+<h1>Listing admin_redeem_codes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_redeem_codes.each do |admin_redeem_code| %>
+      <tr>
+        <td><%= link_to 'Show', admin_redeem_code %></td>
+        <td><%= link_to 'Edit', edit_admin_redeem_code_path(admin_redeem_code) %></td>
+        <td><%= link_to 'Destroy', admin_redeem_code, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Redeem code', new_admin_redeem_code_path %>
