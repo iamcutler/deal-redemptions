@@ -24,6 +24,9 @@ module DealRedemptions
 
     before :each do
       FactoryGirl.create(:user, id: 1)
+
+      # Mock call to check for existing redemption code on create or update
+      allow(DealRedemptions::RedeemCode).to receive(:find_code_by_company).and_return(false)
     end
 
     describe "GET index" do

@@ -26,5 +26,10 @@ module DealRedemptions
     def self.by_company(company)
       where(company_id: company)
     end
+
+    # Find code and company
+    def self.find_code_by_company(code, company)
+      where(code: code, company_id: company)
+    end
   end
 end
