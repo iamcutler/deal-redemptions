@@ -1,0 +1,11 @@
+- page_title "New Redemption Code"
+- admin_page_title "<i class=\"redemptions\"></i> #{link_to 'Redeem Codes', admin_redeem_codes_path} / New Redeem Code".html_safe
+
+.row
+  .col-md-4
+    %h3 New redemption code
+    Add new deal site redemption code.
+    %hr
+
+  .col-md-8
+    = render 'form'

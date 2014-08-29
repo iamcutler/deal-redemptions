@@ -1,0 +1,22 @@
+- if @admin_redeem_code.errors.any?
+  .alert.alert-danger
+    %ul
+    - @admin_redeem_code.errors.full_messages.each do |msg|
+      %li
+        = msg
+
+= form_for [:admin, @admin_redeem_code] do |f|
+  .form-group
+    = f.label :code
+    = f.text_field :code, class: 'form-control'
+  .form-group
+    = f.label :company_id, 'Company'
+    = f.select :company_id, DealRedemptions::Company.all_by_name.collect {|c| [c.name, c.id]}, {}, { class: 'form-control' }
+  .form-group
+    = f.label :product_id, 'Product'
+    = f.select :product_id, DealRedemptions::Product.all.collect {|p| [p.name, p.id]}, {}, { class: 'form-control' }
+  .form-group
+    = f.label :status
+    = f.select :status, [:active, :redeemed, :void], {}, { class: 'form-control' }
+  .form-group.pull-right
+    = f.submit @admin_redeem_code.new_record? ? "Create Code" : "Edit Code", class: 'btn btn-primary'

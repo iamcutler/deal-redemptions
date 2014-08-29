@@ -1,0 +1,39 @@
+- page_title 'Redemption Codes'
+- admin_page_title '<i class="redemptions"></i> Redemption Codes'.html_safe
+
+- if @admin_redeem_codes.empty?
+
+  .no-current-redemptions
+    %i.redemptions.clearfix
+    No redemption codes were found
+
+- else
+  .row
+    .col-md-12
+      = link_to 'New Code', new_admin_redeem_code_path, class: 'btn btn-primary pull-right'
+  %hr
+
+  %table{id: 'redemptions', class: 'table default'}
+    %thead
+      %tr
+        %td
+          Code
+        %td
+          Company:
+        %td
+          Status:
+        %td
+          Created:
+    %tbody
+    - @admin_redeem_codes.each do |code|
+      %tr
+        %td
+          = link_to "#{code.code}", edit_admin_redeem_code_path(code.id)
+        %td
+          = code.company.name
+        %td
+          = code.status
+        %td
+          = code.created_at
+
+    = paginate @admin_redeem_codes

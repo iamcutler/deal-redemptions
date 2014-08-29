@@ -1,0 +1,22 @@
+- page_title "Redemption Code"
+- admin_page_title "<i class=\"redemptions\"></i> #{link_to 'Redemption Codes', admin_redeem_code_path} / #{@admin_redeem_code.code}".html_safe
+
+.row
+  .col-md-4
+    %h3 Edit existing redemption code
+    Make modifications to an existing redemption code.
+    %hr
+
+    - unless @admin_redeem_code.redemption_id.blank?
+      %h4 This code has been used.
+      = link_to 'View Redemption', admin_redemption_path(@admin_redeem_code.redemption_id)
+      %hr
+
+    %h4 Want to remove this code?
+    %h5 Click the button below. You can <strong>NOT</strong> undo this action.
+
+    = button_to 'Delete Redeem Code', admin_redeem_code_path, method: :delete, name: nil, class: 'btn btn-danger', onclick: 'if(!confirm("Are you sure you want to delete this redemption code?")) return false;'
+    %hr
+
+  .col-md-8
+    = render 'form'
