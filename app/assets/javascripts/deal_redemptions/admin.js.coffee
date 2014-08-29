@@ -32,9 +32,14 @@ class Navigation
     $('section#mobile-navigation select').bind 'change', () ->
       window.location.href = @.value
 
+class RedeemCode
+  generate_slug: (string) ->
+    string.replace(/\W+/g, '-').toLowerCase()
+
 
 $(document).ready ->
   navigation = new Navigation
+  redeem_code = new RedeemCode
 
   # Responsive mobile navigation
   navigation.mobile()
@@ -75,3 +80,9 @@ $(document).ready ->
   }).on('changeDate', (ev) ->
     checkout.hide()
   ).data('datepicker')
+
+  # Generate company slug
+  $('input#company_name').keyup(() ->
+    slug = $('input#company_slug')
+    slug.val(redeem_code.generate_slug(@.value))
+  )
