@@ -10,7 +10,13 @@ module DealRedemptions
 
     # GET /admin/redeem_codes
     def index
-      @admin_redeem_codes = DealRedemptions::RedeemCode.page(params[:page]).order(:code).includes(:company)
+      # Check if search param is present
+      if params[:search].blank?
+        @admin_redeem_codes = DealRedemptions::RedeemCode.page(params[:page]).order(:code).includes(:company)
+      else
+        query = DealRedemptions::Redemption.find_by_sql(build_search_query)
+        @admin_redeem_codes = Kaminari.paginate_array(query).page(params[:page])
+      end
     end
 
     # GET /admin/redeem_codes/new
@@ -67,6 +73,29 @@ module DealRedemptions
       # Check existing redemption code by company
       def check_existing_company_code
         @existing_code = DealRedemptions::RedeemCode.find_code_by_company(params[:code], params[:company])
+      end
+
+      # Search redemption codes
+      def build_search_query
+        string = params[:search].split ' '
+        redeem_codes = DealRedemptions::RedeemCode.arel_table
+        companies = DealRedemptions::Company.arel_table
+        query = redeem_codes.project(
+          redeem_codes[:id],
+          redeem_codes[:company_id],
+          redeem_codes[:code],
+          redeem_codes[:status],
+          redeem_codes[:created_at]
+        )
+        .join(companies)
+        .on(redeem_codes[:company_id]
+            .eq(companies[:id]))
+
+        string.each do |s|
+          query.where(redeem_codes[:code].matches("%#{s}%"))
+        end
+
+        query.to_sql
       end
 
       # Only allow a trusted parameter "white list" through.

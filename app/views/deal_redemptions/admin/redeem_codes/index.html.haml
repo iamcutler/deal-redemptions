@@ -1,6 +1,19 @@
 - page_title 'Redemption Codes'
 - admin_page_title '<i class="redemptions"></i> Redemption Codes'.html_safe
 
+%hr
+  .row.clearfix
+    .col-md-4
+      = form_tag '', method: 'get', class: 'search-redemptions pull-right' do
+        .col-md-8.padding-right-5
+          .form-group
+            = search_field_tag '', '', name: 'search', class: 'form-control', placeholder: 'Search by code:'
+        .col-md-4.padding-left-5
+          .form-group
+            = button_tag 'Search', name: nil, class: 'btn btn-primary'
+    .col-md-8
+%hr
+
 - if @admin_redeem_codes.empty?
 
   .no-current-redemptions
