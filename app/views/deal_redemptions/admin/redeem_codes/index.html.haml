@@ -26,6 +26,8 @@
       = link_to 'New Code', new_admin_redeem_code_path, class: 'btn btn-primary pull-right'
   %hr
 
+  = paginate @admin_redeem_codes
+
   %table{id: 'redemptions', class: 'table default'}
     %thead
       %tr
@@ -49,4 +51,5 @@
         %td
           = code.created_at
 
+  .row-fluid
     = paginate @admin_redeem_codes
