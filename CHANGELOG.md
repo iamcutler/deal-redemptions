@@ -8,3 +8,6 @@
 * New config option to overwrite default styling in redemption pages
 * New config option to overwrite email address for outgoing notifications
 * Assigned name order to welcome view when selecting deal site from dropdown
+
+## 0.0.6
+* Added redemption codes CRUD to admin interface
