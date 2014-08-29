@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    deal_redemptions (0.0.6)
+    deal_redemptions (0.0.7)
       bcrypt (~> 3.1.7)
       bootstrap-sass
       haml-rails
