@@ -10,7 +10,7 @@ module DealRedemptions
 
     # GET /admin/redeem_codes
     def index
-      @admin_redeem_codes = DealRedemptions::RedeemCode.page(params[:page]).includes(:company)
+      @admin_redeem_codes = DealRedemptions::RedeemCode.page(params[:page]).order(:code).includes(:company)
     end
 
     # GET /admin/redeem_codes/new
