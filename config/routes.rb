@@ -33,6 +33,7 @@ DealRedemptions::Engine.routes.draw do
     resources :companies
     resources :redemptions
     resources :products, except: [:show]
+    resources :redeem_codes, except: [:show]
     resources :sessions
   end
 end
