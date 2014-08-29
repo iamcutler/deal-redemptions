@@ -28,8 +28,8 @@ module DealRedemptions
     end
 
     # Find code and company
-    def self.find_code_by_company(code, company)
-      where(code: code, company_id: company)
+    def self.find_code_and_company(code, company)
+      where("code = ? AND company_id = ?", code, company)
     end
   end
 end

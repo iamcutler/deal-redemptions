@@ -26,12 +26,12 @@ module DealRedemptions
       FactoryGirl.create(:user, id: 1)
 
       # Mock call to check for existing redemption code on create or update
-      allow(DealRedemptions::RedeemCode).to receive(:find_code_by_company).and_return(false)
+      allow(DealRedemptions::RedeemCode).to receive(:find_code_by_company).and_return([])
     end
 
     describe "GET index" do
       it "assigns all admin_redeem_codes as @admin_redeem_codes" do
-        redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
+        redeem_code = FactoryGirl.create(:redeem_code)
         get :index, {}, valid_session
         expect(assigns(:admin_redeem_codes)).to eq([redeem_code])
       end
@@ -46,7 +46,7 @@ module DealRedemptions
 
     describe "GET edit" do
       it "assigns the requested admin_redeem_code as @admin_redeem_code" do
-        redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
+        redeem_code = FactoryGirl.create(:redeem_code)
         get :edit, {:id => redeem_code.to_param}, valid_session
         expect(assigns(:admin_redeem_code)).to eq(redeem_code)
       end
@@ -91,52 +91,50 @@ module DealRedemptions
           { redeem_code: FactoryGirl.attributes_for(:redeem_code) }
         }
 
+        before :each do
+          @redeem_code = FactoryGirl.create(:redeem_code)
+          put :update, {:id => @redeem_code.to_param, :redeem_code => valid_attributes}, valid_session
+        end
+
         it "updates the requested admin_redeem_code" do
-          redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
-          put :update, {:id => redeem_code.to_param, :redeem_code => new_attributes}, valid_session
-          redeem_code.reload
-          expect(redeem_code.id).to eq(1)
+          @redeem_code.reload
+          expect(@redeem_code.id).to eq(1)
         end
 
         it "assigns the requested admin_redeem_code as @admin_redeem_code" do
-          redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
-          put :update, {:id => redeem_code.to_param, :redeem_code => valid_attributes}, valid_session
-          expect(assigns(:admin_redeem_code)).to eq(redeem_code)
-        end
-
-        it "redirects to the admin_redeem_codes" do
-          redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
-          put :update, {:id => redeem_code.to_param, :redeem_code => valid_attributes}, valid_session
-          expect(response).to redirect_to(admin_redeem_codes_path)
+          expect(assigns(:admin_redeem_code)).to eq(@redeem_code)
         end
       end
 
       describe "with invalid params" do
+        before :each do
+          @redeem_code = FactoryGirl.create(:redeem_code)
+          put :update, {:id => @redeem_code.to_param, :redeem_code => invalid_attributes}, valid_session
+        end
+
         it "assigns the admin_redeem_code as @admin_redeem_code" do
-          redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
-          put :update, {:id => redeem_code.to_param, :redeem_code => invalid_attributes}, valid_session
-          expect(assigns(:admin_redeem_code)).to eq(redeem_code)
+          expect(assigns(:admin_redeem_code)).to eq(@redeem_code)
         end
 
         it "re-renders the 'edit' template" do
-          redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
-          put :update, {:id => redeem_code.to_param, :redeem_code => invalid_attributes}, valid_session
           expect(response).to render_template("edit")
         end
       end
     end
 
     describe "DELETE destroy" do
+      before :each do
+        @redeem_code = FactoryGirl.create(:redeem_code)
+      end
+
       it "destroys the requested admin_redeem_code" do
-        redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
         expect {
-          delete :destroy, {:id => redeem_code.to_param}, valid_session
+          delete :destroy, {:id => @redeem_code.to_param}, valid_session
         }.to change(DealRedemptions::RedeemCode, :count).by(-1)
       end
 
       it "redirects to the admin_redeem_codes list" do
-        redeem_code = DealRedemptions::RedeemCode.create! valid_attributes
-        delete :destroy, {:id => redeem_code.to_param}, valid_session
+        delete :destroy, {:id => @redeem_code.to_param}, valid_session
         expect(response).to redirect_to(admin_redeem_codes_url)
       end
     end

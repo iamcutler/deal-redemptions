@@ -32,7 +32,7 @@ module DealRedemptions
     def create
       @admin_redeem_code = DealRedemptions::RedeemCode.new(redeem_code_params)
 
-      if @existing_code
+      if @existing_code.count > 0
         flash[:notice] = 'Redemption code already exists.'
         render :new
       else
@@ -46,7 +46,7 @@ module DealRedemptions
 
     # PATCH/PUT /admin/redeem_codes/1
     def update
-      if @existing_code
+      if @existing_code.count > 0
         flash[:notice] = 'Redemption code already exists.'
         render :edit
       else
@@ -72,7 +72,8 @@ module DealRedemptions
 
       # Check existing redemption code by company
       def check_existing_company_code
-        @existing_code = DealRedemptions::RedeemCode.find_code_by_company(params[:code], params[:company])
+        redeem_code = params[:redeem_code]
+        @existing_code = DealRedemptions::RedeemCode.find_code_and_company(redeem_code[:code], redeem_code[:company_id])
       end
 
       # Search redemption codes
