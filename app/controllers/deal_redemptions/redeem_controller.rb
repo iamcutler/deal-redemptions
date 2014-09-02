@@ -42,7 +42,7 @@ module DealRedemptions
             end
 
             # Send confirmation email
-            DealRedemptions::RedemptionMailer.confirmation(@redemption).deliver
+            #DealRedemptions::RedemptionMailer.confirmation(@redemption).deliver
 
             redirect_to thank_you_path and return
           rescue
