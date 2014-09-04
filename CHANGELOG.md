@@ -16,3 +16,6 @@
 * Fixed redemption codes pagination position.
 * Added slug generation via user input for companies
 * Fixed redemption creation
+
+## 0.0.8
+* Modified redemptions to redirect back if no redemption codes were found.
