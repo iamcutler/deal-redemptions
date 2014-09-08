@@ -19,3 +19,7 @@
 
 ## 0.0.8
 * Modified redemptions to redirect back if no redemption codes were found.
+
+## 0.0.9
+* Fixed admin password field to have a default value of nil
+* Introduced HTML5 Shiv
