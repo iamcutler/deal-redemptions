@@ -13,5 +13,6 @@
 //= require jquery
 //= require bootstrap
 //= require bootstrap-datepicker
+//= require html5shiv.min
 //= stub deal_redemptions/admin
 //= require_tree .
